@@ -7,6 +7,7 @@ package skola.lab13;
 
 /**
  * Created by sebadmin on 2015-10-13.
+*
  */
 public class Contact {
 
@@ -15,6 +16,7 @@ public class Contact {
 
     public Contact(String name, String home, String work, String mobile) {
         this.name = name;
+        phone = new PhoneNumber(home,work,mobile);
     }
 
     public String getName() {

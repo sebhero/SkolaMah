@@ -13,9 +13,9 @@ import java.text.MessageFormat;
  */
 public class BankAccount {
 
-    String accountNbr;
-    double balance;
-    double interestRate;
+    private String accountNbr;
+    private double balance;
+    private double interestRate;
 
     public BankAccount(String accountNbr) {
         this.accountNbr = accountNbr;

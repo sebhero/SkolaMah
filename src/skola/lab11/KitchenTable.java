@@ -10,10 +10,10 @@ package skola.lab11;
  */
 public class KitchenTable {
 
-    String material;
-    int width;
-    int depth;
-    int height;
+    private String material;
+    private int width;
+    private int depth;
+    private int height;
 
     /**
      * A Kitchentable object
