@@ -31,48 +31,50 @@ public class Race {
 		this.car1.moveTo(starPos, 200);
 		this.car2.moveTo(starPos, 250);
 
+		// Text car1Text = new Text("Hello car1", Font.MONOSPACED, Color.white
+		// );
+
 		// show stuff
 		pw.getContentPane().setBackground(Color.GREEN);
-		pw.line(200, 100, 400, 200, Color.BLACK, 10);
+
+		pw.fillRect(0, 0, pw.getWidth(), pw.getHeight(), Color.GREEN);
+		pw.fillRect(0, 150, pw.getWidth(), 0, Color.GRAY);
+		pw.line(100, 180, 100, 300, Color.BLACK, 10);
 		pw.showImage(car1.getImage(), car1.getX(), car1.getY());
 		pw.showImage(car2.getImage(), car2.getX(), car2.getY());
+		// pw.showImage(car1Text, 0, 50);
 
-		// while (true) {
-		//
-		// pw.showImage(this.image, this.x, this.y);
-		// PaintWindow.pause(20); // pausa exekveringen i 20 ms innan nästa
-		// // förflyttning
-		// x += dx;
-		// y += dy;
-		// // if image x is less than windows width
-		// if (x < 0) {
-		// dx = -dx;
-		// }
-		// // om image x pos is bigger than the windows edge and image width
-		// // chang direction
-		// if (x > pw.getWidth() - image.getIconWidth()) {
-		// dx = -dx;
-		// }
-		// }
+		int y1 = car1.getY();
+		int y2 = car2.getY();
+		int dx = 3;
 
-	}
+		while (true) {
 
-	private void createWindowUpgE() {
-		// this.dx = dx;
-		// this.dy = dy;
-		// this.dx = -3;
-		// this.dy = 0;
-		// this.pw = new PaintWindow();
-		// Random rand = new Random();
-		// // get the image relative path to the project
-		// URL imgPath = this.getClass().getResource("/p1/gubbe.jpg");
-		// this.image = new ImageIcon(imgPath);
-		// // not really used!?
-		// int width = pw.getBackgroundWidth();
-		// int height = pw.getBackgroundHeight();
-		//
-		// x = 250;
-		// y = rand.nextInt(height - 100); // Bildens höjd är 100
+			pw.showImage(car1.getImage(), car1.getX(), car1.getY());
+			pw.showImage(car2.getImage(), car2.getX(), car2.getY());
+			PaintWindow.pause(20); // pausa exekveringen i 20 ms innan nästa
+			// förflyttning
+			car1.moveTo(car1.getX() - dx, y1);
+			car2.moveTo(car2.getX() - dx, y2);
+
+			if (car1.getX() <= 100) {
+				System.out.println("Car 1 won");
+				break;
+			}
+			if (car2.getX() <= 100) {
+				System.out.println("Car 2 won");
+				break;
+			}
+
+			// om image x pos is bigger than the windows edge and image width
+			// chang direction
+			// if (car1.getX() > 50) {
+			// dx = -dx;
+			// break;
+			// }
+		}
+		System.out.println("Game end");
+
 	}
 
 }
