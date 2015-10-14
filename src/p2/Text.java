@@ -1,4 +1,4 @@
-﻿package p2;
+package p2;
 import java.awt.*;
 import java.awt.font.*;
 import javax.swing.Icon;
@@ -84,5 +84,13 @@ public class Text implements Icon {
     public int getIconHeight() {
         return iconHeight;
     }
-    
+
+    /**
+     * Set the Text with a int
+     * @param x a int for the race speed
+     */
+    public void setText(int x) {
+        this.text = String.valueOf(x);
+
+    }
 }

@@ -1,4 +1,5 @@
-﻿package p2;
+package p2;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
@@ -6,7 +7,7 @@ import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 
 /**
- * I ett fönster av typen PaintWindow kan man visa bilder och rita linjer, ellipser 
+ * I ett fönster av typen PaintWindow kan man visa bilder och rita linjer, ellipser
  * och rektanglar. När fönstret skapas kan man ange en bild som ska vara bakgrundsbild.
  * @author Rolf Axelsson
  */
