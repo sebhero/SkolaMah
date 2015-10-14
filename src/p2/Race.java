@@ -7,10 +7,10 @@ public class Race {
 
     private static final int GOAL_LINE_POS = 100;
     private final Font font;
-    private PaintWindow pw;
-	private Car car1;
-	private Car car2;
-	private Random rnd;
+    private final PaintWindow pw;
+	private final Car car1;
+	private final Car car2;
+	private final Random rnd;
     private Text car1Text;
     private Text car2Text;
 
@@ -81,9 +81,9 @@ public class Race {
         //because i want to save the winner. instead of doing a double check later.
 		while (true) {
 
-            //REdraw the car and car text
+            // redraw the car and car text
 			pw.showImage(car1.getImage(), car1.getX(), y1);
-			pw.showImage(car2.getImage(), car2.getX(), y1);
+			pw.showImage(car2.getImage(), car2.getX(), y2);
             pw.showImage(car1Text,10, 50);
             pw.showImage(car2Text,text2Pos, 50);
 

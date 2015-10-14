@@ -6,8 +6,8 @@ import com.sun.glass.ui.Pixels.Format;
 
 public class Painting {
 	
-	private String title;
-	private String painter;
+	private final String title;
+	private final String painter;
 	private int year;
 	
 	public Painting(String title, String painter, int year) {

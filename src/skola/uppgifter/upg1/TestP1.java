@@ -18,10 +18,10 @@ public class TestP1 {
 
 	public static void runMethod(String methodName) throws Exception {
 		Class cls = Class.forName("skola.uppgifter.upg1.Exercise1");
-		Constructor constructor = cls.getConstructor(new Class[] {});
-		Object exercise1 = constructor.newInstance(new Object[] {});
-		Method method = cls.getDeclaredMethod(methodName, new Class[] {});
-		method.invoke(exercise1, new Object[] {});
+		Constructor constructor = cls.getConstructor();
+		Object exercise1 = constructor.newInstance();
+		Method method = cls.getDeclaredMethod(methodName);
+		method.invoke(exercise1);
 		System.out.println(" " + methodName + " exekverad");
 	}
 

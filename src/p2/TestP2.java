@@ -9,7 +9,7 @@ Rolf Axelsson
 public class TestP2 {
     public void runMain(String classname) throws Exception {
         Class cls = Class.forName(classname);
-        Method method = cls.getDeclaredMethod("main",new Class[]{String[].class});
+        Method method = cls.getDeclaredMethod("main", String[].class);
         method.invoke(null,new Object[]{new String[]{"dummy"}}); 
     }
     

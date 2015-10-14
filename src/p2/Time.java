@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Time {
 
-	Calendar cal = Calendar.getInstance();
+	private final Calendar cal = Calendar.getInstance();
 
 	public Time() {
 
