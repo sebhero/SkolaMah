@@ -1,9 +1,10 @@
+package skola.lab11b;
 /*
  * Author: Sebastian Börebäck
  * Copyright (c) 2015.
  */
 
-package skola.lab11;
+
 
 /**
  * Created by sebadmin on 2015-10-05.

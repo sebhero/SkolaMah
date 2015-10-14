@@ -1,4 +1,5 @@
-package skola.lab11;/*
+package skola.lab11b;
+/*
 * EmployeeTest.java
 * Den 5/10 - 2015
 */

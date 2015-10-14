@@ -1,3 +1,4 @@
+package skola.lab11b;
 //package laboration11;
 //import javax.swing.JOptionPane;
 //

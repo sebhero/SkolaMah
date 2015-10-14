@@ -1,9 +1,10 @@
+package skola.lab11b;
 /*
  * Author: Sebastian Börebäck
  * Copyright (c) 2015.
  */
 
-package skola.lab11;
+
 
 import javax.swing.*;
 import java.text.MessageFormat;

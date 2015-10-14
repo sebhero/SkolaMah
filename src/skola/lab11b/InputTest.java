@@ -1,4 +1,5 @@
-package laboration11;
+package skola.lab11b;
+
 
 import javax.swing.JOptionPane;
 
