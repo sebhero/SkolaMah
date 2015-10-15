@@ -8,9 +8,7 @@ package skola.lab15;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by sebadmin on 2015-10-15.
- */
+
 public class AllPanels extends JPanel{
 
     public AllPanels()

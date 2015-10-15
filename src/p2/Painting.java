@@ -12,14 +12,14 @@ public class Painting {
 	// Variables used for the Painting
 	private final String title;
 	private final String painter;
-	private int year;
+	private final int year;
 
 	/**
 	 * Painting constructor take the title,Painter and year when it was painted
 	 * 
-	 * @param title
-	 * @param painter
-	 * @param year
+	 * @param title the title of the painting
+	 * @param painter the name of the painter
+	 * @param year the year it was painted
 	 */
 	public Painting(String title, String painter, int year) {
 		super();

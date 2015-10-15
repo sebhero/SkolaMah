@@ -2,8 +2,7 @@ package skola.lab15;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.text.MessageFormat;
 
 import javax.swing.BorderFactory;
@@ -15,12 +14,12 @@ import javax.swing.JPanel;
 
 public class FCConverterPanel extends JPanel {
 
-	private JLabel lblDegrees = new JLabel("Grader");
-	private JLabel lblResult = new JLabel("Resultat> ");
-	private JFormattedTextField tfDegrees = new JFormattedTextField();
-	private JButton btnFToC = new JButton("Till Celsisus");
-	private JButton btnCToF = new JButton("Till Fahrenheit");
-	private JButton btnExit = new JButton("Avsluta");
+	private final JLabel lblDegrees = new JLabel("Grader");
+	private final JLabel lblResult = new JLabel("Resultat> ");
+	private final JFormattedTextField tfDegrees = new JFormattedTextField();
+	private final JButton btnFToC = new JButton("Till Celsisus");
+	private final JButton btnCToF = new JButton("Till Fahrenheit");
+	private final JButton btnExit = new JButton("Avsluta");
 
 	public FCConverterPanel() {
 		setPreferredSize(new Dimension(260, 130));
@@ -56,9 +55,7 @@ public class FCConverterPanel extends JPanel {
         });
 
         //exit the program
-        btnExit.addActionListener(actionEvent->{
-            System.exit(0);
-        });
+        btnExit.addActionListener(actionEvent-> System.exit(0));
 
 		add(lblDegrees);
 		add(tfDegrees);

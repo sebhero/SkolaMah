@@ -10,12 +10,8 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-/**
- * Created by sebadmin on 2015-10-15.
- */
 public class TransportPanel extends JPanel{
 
-    private final JLabel lblQuestion;
     private final JCheckBox chkbxCar;
     private final JCheckBox chkbxTrain;
     private final JCheckBox chkbxBus;
@@ -30,7 +26,7 @@ public class TransportPanel extends JPanel{
         setBackground(Color.cyan);
 
         //creates the gui items
-        lblQuestion = new JLabel("How do you travel to MAH?");
+        JLabel lblQuestion = new JLabel("How do you travel to MAH?");
         lblResult = new JLabel("result");
         chkbxCar = new JCheckBox("Car");
         chkbxTrain = new JCheckBox("Train");

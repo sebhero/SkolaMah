@@ -3,7 +3,7 @@ package p2;
 import javax.swing.ImageIcon;
 
 public class Car {
-    private ImageIcon image;
+    private final ImageIcon image;
     private int x;
     private int y;
 

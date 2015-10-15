@@ -7,9 +7,7 @@ package skola.lab15;
 
 import javax.swing.*;
 
-/**
- * Created by sebadmin on 2015-10-15.
- */
+
 public class FCConverter {
 
     public void start() {

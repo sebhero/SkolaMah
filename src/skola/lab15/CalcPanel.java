@@ -12,17 +12,17 @@ import javax.swing.JTextField;
 
 public class CalcPanel extends JPanel implements ActionListener {
 
-	private Font fontLabels = new Font("SansSerif", Font.PLAIN, 18);
-	private Font fontButtons = new Font("SansSerif", Font.PLAIN, 24);
-	private JLabel lblNbr1 = new JLabel("Tal 1");
-	private JTextField tfNbr1 = new JTextField();
-	private JLabel lblNbr2 = new JLabel("Tal 2");
-	private JTextField tfNbr2 = new JTextField();
+	private final Font fontLabels = new Font("SansSerif", Font.PLAIN, 18);
+	private final Font fontButtons = new Font("SansSerif", Font.PLAIN, 24);
+	private final JLabel lblNbr1 = new JLabel("Tal 1");
+	private final JTextField tfNbr1 = new JTextField();
+	private final JLabel lblNbr2 = new JLabel("Tal 2");
+	private final JTextField tfNbr2 = new JTextField();
 
-	private JButton btnAdd = new JButton("+");
-	private JButton btnSub = new JButton("-");
+	private final JButton btnAdd = new JButton("+");
+	private final JButton btnSub = new JButton("-");
 
-	private JLabel lblResult = new JLabel("Resultat");
+	private final JLabel lblResult = new JLabel("Resultat");
 
 	public CalcPanel() {
 		// set window dimensions for panel

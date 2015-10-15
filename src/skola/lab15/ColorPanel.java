@@ -9,9 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-/**
- * Created by sebadmin on 2015-10-15.
- */
 public class ColorPanel extends JPanel{
 
 
@@ -56,13 +53,9 @@ public class ColorPanel extends JPanel{
                 setBackground(Color.RED);
         });
 
-        radio2.addActionListener(ae ->{
-            setBackground(Color.GREEN);
-        });
+        radio2.addActionListener(ae -> setBackground(Color.GREEN));
 
-        radio3.addActionListener(ae ->{
-            setBackground(Color.blue);
-        });
+        radio3.addActionListener(ae -> setBackground(Color.blue));
 
         radio4.addActionListener(ae ->{
             int choice = rnd.nextInt(3);

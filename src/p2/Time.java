@@ -64,11 +64,11 @@ public class Time {
 	 */
 	@Override
 	public String toString() {
-		// How the timestamp should be formated
-		// HH = hours with 2 digits. mm = minues with 2 digits, ss = seconds
+		// How the timestamp should be formatted
+		// HH = hours with 2 digits. mm = minus with 2 digits, ss = seconds
 		// with 2 digits
 		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-		// retuns a pretty formated timestamp
+		// returns a pretty formatted timestamp
 		return dateFormat.format(this.cal.getTime());
 	}
 }

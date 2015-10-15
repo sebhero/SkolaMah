@@ -10,7 +10,7 @@ public class Exercise2b {
 		hour = dt.getHour();
 		minute = dt.getMinute();
 		second = dt.getSecond();
-		message1 = "Klockan är " + minute + " minuter över " + hour + " (+"
+		message1 = "Klockan Ã¤r " + minute + " minuter Ã¶ver " + hour + " (+"
 				+ second + " sekunder)";
 		message2 = dt.toString();
 		JOptionPane.showMessageDialog(null, message1);
