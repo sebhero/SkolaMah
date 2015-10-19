@@ -23,6 +23,7 @@ public class Circle {
     }
 
     public Point getPosition() {
+//        return this.position.copy();
         return this.position;
     }
 

@@ -21,7 +21,7 @@ public class CircleMain_13g {
         p2.setX( 333 ); // x-­‐värdet i p2 ändras till 333
         System.out.println( "p1 = " + p1.toString() );
         System.out.println( "c1 = " + c1.toString() );
-        System.out.println( "p2 = " + p1.toString() );
+        System.out.println( "p2 = " + p2.toString() );
     }
 
 }

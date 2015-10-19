@@ -60,18 +60,24 @@ public class ColorPanel extends JPanel{
         radio4.addActionListener(ae ->{
             int choice = rnd.nextInt(3);
 
-            switch (choice)
-            {
-                case 1:
-                    setBackground(Color.RED);
-                break;
-                case 2:
-                    setBackground(Color.GREEN);
-                break;
-                case 0:
-                    setBackground(Color.blue);
-                break;
-            }
+            int red,blue,green;
+            red = rnd.nextInt(255);
+            blue = rnd.nextInt(255);
+            green = rnd.nextInt(255);
+
+            setBackground(new Color(red,green,blue));
+//            switch (choice)
+//            {
+//                case 1:
+//                    setBackground(Color.RED);
+//                break;
+//                case 2:
+//                    setBackground(Color.GREEN);
+//                break;
+//                case 0:
+//                    setBackground(Color.blue);
+//                break;
+//            }
         });
 
         add(pickColor);

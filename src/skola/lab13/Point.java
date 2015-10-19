@@ -19,10 +19,10 @@ public class Point {
         this.y = point.getY();
     }
     
-    public Point copy() {
-        Point point = new Point( this.x, this.y);
-        return point;
-    }
+//    public Point copy() {
+//        Point point = new Point( this.x, this.y);
+//        return point;
+//    }
     
     public void setPoint( Point point ) {
         this.x = point.getX();
@@ -55,5 +55,9 @@ public class Point {
         p1.setPoint( p2 );
         System.out.println( p1.toString() );
         System.out.println( p2.toString() );
+    }
+
+    public Point copy() {
+        return new Point(this.x,this.y);
     }
 }

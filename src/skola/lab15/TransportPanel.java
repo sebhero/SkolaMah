@@ -22,12 +22,16 @@ public class TransportPanel extends JPanel{
     public TransportPanel()
     {
         //sets the size
-        setPreferredSize(new Dimension(400,60));
+        setPreferredSize(new Dimension(400, 60));
         setBackground(Color.cyan);
+
+        Dimension textDim = new Dimension(390, 10);
 
         //creates the gui items
         JLabel lblQuestion = new JLabel("How do you travel to MAH?");
+        lblQuestion.setPreferredSize(textDim);
         lblResult = new JLabel("result");
+        lblResult.setPreferredSize(textDim);
         chkbxCar = new JCheckBox("Car");
         chkbxTrain = new JCheckBox("Train");
         chkbxBus = new JCheckBox("Bus");
@@ -68,8 +72,11 @@ public class TransportPanel extends JPanel{
         @Override
         public void itemStateChanged(ItemEvent e) {
 
+
+            //holds the result string
             String theResult = "You choose:";
 
+            //checklist to see what is checked
             if(chkbxCar.isSelected())
             {
                 theResult +=" car";
