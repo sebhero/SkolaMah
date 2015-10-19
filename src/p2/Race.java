@@ -1,19 +1,35 @@
 package p2;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Font;
+import java.net.URL;
 import java.util.Random;
 
+/***
+ * A race program that handles creating a race between 2 cars.
+ * 
+ *
+ */
 public class Race {
 
+	// The goal position
 	private static final int GOAL_LINE_POS = 100;
+	// a font object, handling the font for the text
 	private final Font font;
+	// a paint window to show the race
 	private final PaintWindow pw;
+	// the cars that are racing in the game
 	private final Car car1;
 	private final Car car2;
+	// random for setting random speed of the car
 	private final Random rnd;
+	// text holder for the cars position
 	private Text car1Text;
 	private Text car2Text;
+	// soundhandler
+	private AudioClip clip;
 
 	/**
 	 * Creates a race object for handling the race
@@ -94,6 +110,9 @@ public class Race {
 		// The winning text displayed at the end
 		String winnerString;
 
+		// start The sound
+		startSound();
+
 		// while true loop is because i do the check in the loop
 		// because i want to save the winner. instead of doing a double check
 		// later.
@@ -108,7 +127,7 @@ public class Race {
 			pw.showImage(car2Text, text2Pos, 50);
 
 			// update freq. the speed for the game to update in ms (updates with 20ms)
-			PaintWindow.pause(20); // pausa exekveringen i 20 ms innan nästa
+			PaintWindow.pause(20);
 
 			// movement
 			/*
@@ -121,8 +140,9 @@ public class Race {
 
 			// added setText to the Text element due to it was missing.
 			// otherwise i would cause a memory leak
-			car1Text.setText(car1.getX());
-			car2Text.setText(car2.getX());
+			// the - 100 is because that the finish line is 100px from edge of the window.
+			car1Text.setText(car1.getX() - 100);
+			car2Text.setText(car2.getX() - 100);
 
 			// Check which if a car won.
 			// if the car X is at x position 100 where the line is, it has won
@@ -145,9 +165,38 @@ public class Race {
 		// extra to display in console that the game has ended
 		System.out.println("Game end");
 
-		// create winning textbox and dispaly
+		// Stop the sound, the if is because it may not been able to init the sound object.
+		if (clip != null) {
+			System.out.println("stop sound");
+			clip.stop();
+		}
+
+		// create winning textbox and display it
 		Text winnerText = new Text(winnerString, font, Color.BLACK, Color.white);
 		pw.showImage(winnerText, pw.getWidth() / 2, 100);
+
+	}
+
+	private void startSound() {
+		this.clip = null;
+		try {
+
+			// URL url = new File("/p2/car.wav").toURI().toURL();
+			URL url = this.getClass().getResource("/p2/car.wav");
+
+			clip = Applet.newAudioClip(url);
+		} catch (Exception e) {
+			// if couldnt add sound sets sound. clip == null
+		}
+
+		if (clip != null) {
+			System.out.println("play sound");
+			clip.play();
+		}
+		else
+		{
+			System.out.println("NO sound");
+		}
 
 	}
 
