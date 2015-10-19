@@ -175,6 +175,7 @@ public class Race {
 		Text winnerText = new Text(winnerString, font, Color.BLACK, Color.white);
 		pw.showImage(winnerText, pw.getWidth() / 2, 100);
 
+
 	}
 
 	private void startSound() {
