@@ -5,7 +5,10 @@
 
 package skola.lab16.upg16c;
 
+import skola.lab16.LabelPanelView;
+
 import javax.swing.*;
+import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,6 +17,7 @@ import java.util.regex.Pattern;
  */
 public class Controller {
 
+    private LabelPanelView labelPanelView;
     private ImageViewer viewer;
     private Pattern pattern;
     private Matcher matcher;
@@ -42,6 +46,12 @@ public class Controller {
     public Controller(ImageViewer viewer) {
         this.viewer = viewer;
         pattern = Pattern.compile(IMAGE_PATTERN);
+    }
+
+    public Controller(LabelPanelView labelPanelView) {
+
+        this.labelPanelView = labelPanelView;
+
     }
 
     public void newImage(String imagePath)
@@ -74,5 +84,10 @@ public class Controller {
         JOptionPane.showMessageDialog( null, viewer );
 // cont.newImage( "M:/bilder/karta.bmp" ); // ej tillåten filtyp
 //  cont.eraseImage();
+    }
+
+    public void setLabelPanelViewColor(Color newBackgroundColorForLabelView) {
+        this.labelPanelView.setBackground(newBackgroundColorForLabelView);
+
     }
 }

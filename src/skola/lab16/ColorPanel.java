@@ -5,6 +5,8 @@
 
 package skola.lab16;
 
+import skola.lab16.upg16c.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -12,80 +14,99 @@ import java.util.Random;
 public class ColorPanel extends JPanel{
 
 
-    private final JLabel pickColor;
-    private final JRadioButton radio1;
-    private final JRadioButton radio2;
-    private final JRadioButton radio4;
-    private final JRadioButton radio3;
+    private final JLabel pickColor= new JLabel("Pick a color");
+    private final JRadioButton rdRed = new JRadioButton("Red");
+    private final JRadioButton rdGreen = new JRadioButton("Green");
+    private final JRadioButton rdBlue = new JRadioButton("Blue");
+    private final JRadioButton rdSlump = new JRadioButton("Slump");
+    private Controller controller;
 
 
     public ColorPanel()
     {
+        this(null);
+
+    }
+
+    private void init() {
         setPreferredSize(new Dimension(200, 130));
 
-        Random rnd = new Random();
 
-        pickColor = new JLabel("Pick a color");
-
-        radio1 = new JRadioButton("Red");
-        radio2 = new JRadioButton("Green");
-        radio3 = new JRadioButton("Blue");
-        radio4 = new JRadioButton("Slump");
 
         //dimesion for the radionbuttons so the are in row
         Dimension rdDimension = new Dimension(180, 20);
 
-        radio1.setPreferredSize(rdDimension);
-        radio2.setPreferredSize(rdDimension);
-        radio3.setPreferredSize(rdDimension);
-        radio4.setPreferredSize(rdDimension);
+        rdRed.setPreferredSize(rdDimension);
+        rdGreen.setPreferredSize(rdDimension);
+        rdSlump.setPreferredSize(rdDimension);
+        rdBlue.setPreferredSize(rdDimension);
 
 
         ButtonGroup group = new ButtonGroup();
-        group.add(radio1);
-        group.add(radio2);
-        group.add(radio3);
-        group.add(radio4);
+        group.add(rdRed);
+        group.add(rdGreen);
+        group.add(rdSlump);
+        group.add(rdBlue);
+        //add listeners
+        addListeners();
+
+
+        add(pickColor);
+        add(rdRed);
+        add(rdGreen);
+        add(rdSlump);
+        add(rdBlue);
+    }
+
+    private void addListeners() {
+        Random rnd = new Random();
+        //Color theColor;
 
         //add action listner
-        radio1.addActionListener(ae ->{
-            if(radio1.isSelected())
+
+        rdRed.addActionListener(ae -> {
+            if (rdRed.isSelected()) {
                 setBackground(Color.RED);
+                if(this.controller != null) {
+                    this.controller.setLabelPanelViewColor(Color.RED);
+                }
+            }
         });
 
-        radio2.addActionListener(ae -> setBackground(Color.GREEN));
+        rdGreen.addActionListener(ae -> {
+            setBackground(Color.GREEN);
+            if(this.controller != null) {
+                this.controller.setLabelPanelViewColor(Color.GREEN);
+            }
 
-        radio3.addActionListener(ae -> setBackground(Color.blue));
+        });
 
-        radio4.addActionListener(ae ->{
-            int choice = rnd.nextInt(3);
+        rdSlump.addActionListener(ae -> {
+            setBackground(Color.blue);
+            if(this.controller != null) {
+                this.controller.setLabelPanelViewColor(Color.BLUE);
+            }
+        });
 
-            int red,blue,green;
+        rdBlue.addActionListener(ae -> {
+            int red, blue, green;
             red = rnd.nextInt(255);
             blue = rnd.nextInt(255);
             green = rnd.nextInt(255);
+            Color theColor = new Color(red, green, blue);
 
-            setBackground(new Color(red,green,blue));
-//            switch (choice)
-//            {
-//                case 1:
-//                    setBackground(Color.RED);
-//                break;
-//                case 2:
-//                    setBackground(Color.GREEN);
-//                break;
-//                case 0:
-//                    setBackground(Color.blue);
-//                break;
-//            }
+            setBackground(theColor);
+            if(this.controller != null) {
+                this.controller.setLabelPanelViewColor(theColor);
+            }
         });
 
-        add(pickColor);
-        add(radio1);
-        add(radio2);
-        add(radio3);
-        add(radio4);
 
+    }
+
+    public ColorPanel(Controller controller) {
+        this.controller = controller;
+        init();
 
     }
 
