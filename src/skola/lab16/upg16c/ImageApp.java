@@ -13,7 +13,7 @@ import javax.swing.*;
 public class ImageApp {
     public void newFrame(JPanel panel, String title) {
         JFrame frame = new JFrame( title );
-        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        frame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         frame.add( panel );
         frame.pack();
         frame.setVisible( true );

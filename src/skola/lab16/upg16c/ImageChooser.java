@@ -7,14 +7,13 @@ package skola.lab16.upg16c;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
+
 
 /**
  * Created by Sebastian 2015-10-19.
  */
 public class ImageChooser extends JPanel{
 
-    private final JPanel pnlRadioButtons;
     private final JRadioButton rbLondon;
     private final JRadioButton rbMovielogo;
     private final JRadioButton rbLugi;
@@ -27,7 +26,7 @@ public class ImageChooser extends JPanel{
 
         setLayout(new BorderLayout());
         this.controller = controller;
-        pnlRadioButtons = new JPanel(new GridLayout(5, 1));
+        JPanel pnlRadioButtons = new JPanel(new GridLayout(5, 1));
 
         btnRemoveImage = new JButton("Ta bort bild");
 
@@ -77,8 +76,6 @@ public class ImageChooser extends JPanel{
             controller.newImage("/skola/lab16/program.bmp");
         });
 
-        btnRemoveImage.addActionListener(ar ->{
-            controller.eraseImage();
-        });
+        btnRemoveImage.addActionListener(ar -> controller.eraseImage());
     }
 }

@@ -6,13 +6,12 @@
 package skola.lab16;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.DimensionUIResource;
 import java.awt.*;
 
 /**
- * Created by seb on 2015-10-19.
+ * Created by Sebastian Börebäck on 2015-10-19.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class SurveyPanel extends JPanel {
 
     private JPanel pnlNorth = new JPanel(new BorderLayout());
@@ -52,9 +51,7 @@ public class SurveyPanel extends JPanel {
         pnlNorth.add(pnlNorthCenter, BorderLayout.CENTER);
         pnlNorth.add(btnSummar, BorderLayout.SOUTH);
 
-        btnSummar.addActionListener(ae -> {
-            summary();
-        });
+        btnSummar.addActionListener(ae -> summary());
 
 
         pnlNorthNorth.add(lblName, BorderLayout.WEST);

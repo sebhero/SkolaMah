@@ -13,20 +13,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by sebadmin on 2015-10-19.
+ * Created by Sebastian Börebäck on 2015-10-19.
  */
 public class Controller {
 
     private LabelPanelView labelPanelView;
     private ImageViewer viewer;
     private Pattern pattern;
-    private Matcher matcher;
 
 //    (			#Start of the group #1
 //            [^\s]+			#  must contains one or more anything (except white space)
 //    (		#    start of the group #2
 //            \.		#	follow by a dot "."
-//            (?i)		#	ignore the case sensive checking for the following characters
+//            (?i)		#	ignore the case sensitive checking for the following characters
 //            (		#	  start of the group #3
 //                    jpg	#	    contains characters "jpg"
 //                    |		#	    ..or
@@ -41,10 +40,9 @@ public class Controller {
 //    )			#end of the group #1
 
 
-    private static String IMAGE_PATTERN = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)";
-
     public Controller(ImageViewer viewer) {
         this.viewer = viewer;
+        String IMAGE_PATTERN = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)";
         pattern = Pattern.compile(IMAGE_PATTERN);
     }
 
@@ -57,7 +55,7 @@ public class Controller {
     public void newImage(String imagePath)
     {
 
-        matcher = pattern.matcher(imagePath);
+        Matcher matcher = pattern.matcher(imagePath);
         if(matcher.matches())
         {
             System.out.println("show image");

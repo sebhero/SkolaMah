@@ -14,12 +14,7 @@ import javax.swing.*;
  */
 public class Laboration16d {
 
-    public Laboration16d()
-    {
 
-
-
-    }
 
     public static void main(String[] args) {
         Laboration16d lab16d = new Laboration16d();
@@ -41,7 +36,7 @@ public class Laboration16d {
     private void showFrame(String title, int x, int y, JPanel panel) {
 
         JFrame frame = new JFrame(title);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(panel);
         frame.pack();
         frame.setLocation(x,y);

@@ -10,7 +10,7 @@ import java.awt.*;
 import java.net.URL;
 
 /**
- * Created by sebadmin on 2015-10-19.
+ * Created by Sebastian Börebäck on 2015-10-19.
  */
 public class ImageViewer extends JPanel{
 

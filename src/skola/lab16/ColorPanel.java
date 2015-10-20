@@ -33,7 +33,7 @@ public class ColorPanel extends JPanel{
 
 
 
-        //dimesion for the radionbuttons so the are in row
+        //dimension for the radio buttons so the are in row
         Dimension rdDimension = new Dimension(180, 20);
 
         rdRed.setPreferredSize(rdDimension);
@@ -62,8 +62,7 @@ public class ColorPanel extends JPanel{
         Random rnd = new Random();
         //Color theColor;
 
-        //add action listner
-
+        //add action listeners
         rdRed.addActionListener(ae -> {
             if (rdRed.isSelected()) {
                 setBackground(Color.RED);
