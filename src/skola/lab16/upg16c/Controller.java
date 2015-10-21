@@ -5,7 +5,7 @@
 
 package skola.lab16.upg16c;
 
-import skola.lab16.LabelPanelView;
+import skola.lab16.ColorPanelView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,8 +17,8 @@ import java.util.regex.Pattern;
  */
 public class Controller {
 
-    private LabelPanelView labelPanelView;
-    private ImageViewer viewer;
+    private ColorPanelView colorPanelView;
+    private ImageViewer imagePanelView;
     private Pattern pattern;
 
 //    (			#Start of the group #1
@@ -40,39 +40,63 @@ public class Controller {
 //    )			#end of the group #1
 
 
-    public Controller(ImageViewer viewer) {
-        this.viewer = viewer;
+    /**
+     * Controller for the image imagePanelView
+     * take a imageViewer to display images
+     * @param imagePanelView a ImageViewer object for showing images.
+     */
+    public Controller(ImageViewer imagePanelView) {
+        this.imagePanelView = imagePanelView;
         String IMAGE_PATTERN = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)";
         pattern = Pattern.compile(IMAGE_PATTERN);
     }
 
-    public Controller(LabelPanelView labelPanelView) {
+    /**
+     * A controller for the a colorPanelView
+     * @param colorPanelView a colorpanelView
+     */
+    public Controller(ColorPanelView colorPanelView) {
 
-        this.labelPanelView = labelPanelView;
+        this.colorPanelView = colorPanelView;
 
     }
 
-    public void newImage(String imagePath)
+    /**
+     * Change the image in the imagePanelView
+     * @param filepath the filepath for the new image
+     */
+    public void newImage(String filepath)
     {
 
-        Matcher matcher = pattern.matcher(imagePath);
+        Matcher matcher = pattern.matcher(filepath);
         if(matcher.matches())
         {
             System.out.println("show image");
-            this.viewer.showImage(imagePath);
+            this.imagePanelView.showImage(filepath);
 
         }
         else {
             JOptionPane.showMessageDialog(null, "Felaktig filtyp! maste vara jpg,png eller gif\n" +
-                    "Du gav: "+imagePath);
+                    "Du gav: "+filepath);
         }
 
     }
 
-
+    /**
+     * Remove the image from the imagePangelView
+     */
     public void eraseImage()
     {
-        this.viewer.noImage();
+        this.imagePanelView.noImage();
+    }
+
+    /**
+     * Handles the change of color in for the Color panel
+     * @param newBackgroundColorForLabelView
+     */
+    public void setLabelPanelViewColor(Color newBackgroundColorForLabelView) {
+        this.colorPanelView.setBackground(newBackgroundColorForLabelView);
+
     }
 
     public static void main(String[] args) {
@@ -82,10 +106,5 @@ public class Controller {
         JOptionPane.showMessageDialog( null, viewer );
 // cont.newImage( "M:/bilder/karta.bmp" ); // ej tillåten filtyp
 //  cont.eraseImage();
-    }
-
-    public void setLabelPanelViewColor(Color newBackgroundColorForLabelView) {
-        this.labelPanelView.setBackground(newBackgroundColorForLabelView);
-
     }
 }

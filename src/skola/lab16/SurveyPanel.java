@@ -11,7 +11,10 @@ import java.awt.*;
 /**
  * Created by Sebastian Börebäck on 2015-10-19.
  */
-@SuppressWarnings("DefaultFileTemplate")
+
+/**
+ * A survey panel for doing surveys.
+ */
 public class SurveyPanel extends JPanel {
 
     private JPanel pnlNorth = new JPanel(new BorderLayout());
@@ -39,20 +42,25 @@ public class SurveyPanel extends JPanel {
     private JCheckBox cbSong = new JCheckBox("Korsang");
 
 
+    /**
+     * Creates and inits the survey panel
+     */
     public SurveyPanel() {
         setPreferredSize(new Dimension(300, 360));
 
         setLayout(new BorderLayout());
 
+        //add stuff to the panel
         add(pnlNorth, BorderLayout.NORTH);
         add(taSummary, BorderLayout.CENTER);
 
+        //add stuff to north panel where the selction is done
         pnlNorth.add(pnlNorthNorth, BorderLayout.NORTH);
         pnlNorth.add(pnlNorthCenter, BorderLayout.CENTER);
         pnlNorth.add(btnSummar, BorderLayout.SOUTH);
 
+        //add listner for the btnSummery
         btnSummar.addActionListener(ae -> summary());
-
 
         pnlNorthNorth.add(lblName, BorderLayout.WEST);
         pnlNorthNorth.add(tfName, BorderLayout.CENTER);

@@ -58,6 +58,9 @@ public class PaintWindow extends JFrame {
             icons.get(index).setY(y);
         }
         repaint();
+        //TODO Fixed paintWindow so it works in linux as well
+        //http://stackoverflow.com/questions/18684220/why-is-java-application-running-smoother-when-moving-mouse-over-it-video-includ
+        Toolkit.getDefaultToolkit().sync();
     }
     
     public void hideImage(Icon icon) {

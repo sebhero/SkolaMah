@@ -27,7 +27,6 @@ public class Time {
 	 * @return a int of hour
 	 */
 	public int getHour() {
-		// TODO Auto-generated method stub
 		return cal.get(Calendar.HOUR);
 	}
 
@@ -37,7 +36,6 @@ public class Time {
 	 * @return a int of minutes
 	 */
 	public int getMinute() {
-		// TODO Auto-generated method stub
 		return cal.get(Calendar.MINUTE);
 	}
 

@@ -23,7 +23,7 @@ public class Laboration16d {
 
     private void action() {
 
-        LabelPanelView labelPanel = new LabelPanelView();
+        ColorPanelView labelPanel = new ColorPanelView();
         Controller controller = new Controller(labelPanel);
 
         ColorPanel colorPanel = new ColorPanel(controller);
