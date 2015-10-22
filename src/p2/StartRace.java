@@ -1,5 +1,6 @@
 package p2;
 
+import java.awt.*;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -17,7 +18,8 @@ public class StartRace { // /Volumes/Home/TSROAX/
 		Car c1 = new Car(new ImageIcon(imgPath1));
 		Car c2 = new Car(new ImageIcon(imgPath2));
 		Race race = new Race(window, c1, c2);
-		race.action();
+
+        race.action();
 		if (args.length > 0) {
 			PaintWindow.pause(2000);
 			window.dispose();
