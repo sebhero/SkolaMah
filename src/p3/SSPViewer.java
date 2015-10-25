@@ -87,6 +87,8 @@ public class SSPViewer extends JPanel{
                 return "Sax";
             case 2:
                 return "Pose";
+            case 4:
+                return "";
         }
         //If couldnt find the type
         return "Didnt find choice";

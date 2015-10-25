@@ -39,6 +39,8 @@ public class SSPController {
         playerWon =0;
         playingStatus = true;
         this.userInput.setGameStatus(playingStatus);
+        updateView(4, 4);
+
     }
 
     /**
@@ -67,6 +69,7 @@ public class SSPController {
         // 0 lika
         // -1 och 2 human vinn
         // otherwise cpu win
+
 
         int result = playerChoice - cpuChoice;
 

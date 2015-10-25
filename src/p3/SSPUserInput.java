@@ -6,7 +6,6 @@
 package p3;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 /**
@@ -38,12 +37,6 @@ public class SSPUserInput extends JPanel{
 //        setPreferredSize(new Dimension(300, 360));
         setLayout(new BorderLayout());
 
-
-        add(pnlChoiceButtons, BorderLayout.CENTER);
-
-
-
-
         //add the action listner using lambda expressions
         // https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
 
@@ -65,16 +58,24 @@ public class SSPUserInput extends JPanel{
         });
 
         //add the buttons to the panel
-        pnlChoiceButtons.add(btnSten,BorderLayout.WEST);
+        pnlChoiceButtons.add(btnSten, BorderLayout.WEST);
         pnlChoiceButtons.add(btnSax, BorderLayout.CENTER);
-        pnlChoiceButtons.add(btnPose,BorderLayout.EAST);
+        pnlChoiceButtons.add(btnPose, BorderLayout.EAST);
 
         //add new game button
         btnNewGame = new JButton("Nytt spel");
         //add the action using lambda expressions
-        btnNewGame.addActionListener(ar -> controller.newGame());
+        btnNewGame.addActionListener(ae -> controller.newGame());
+
+        JButton btnEndGame = new JButton("Avsluta");
+        btnEndGame.addActionListener(ae -> {
+            System.exit(0);
+        });
+
         //add the button to the main panel SSPUserInputs
-        this.add(btnNewGame, BorderLayout.SOUTH);
+        add(pnlChoiceButtons, BorderLayout.NORTH);
+        this.add(btnNewGame, BorderLayout.CENTER);
+        add(btnEndGame, BorderLayout.SOUTH);
 
         //sets the game status to started
         this.setGameStatus(true);
