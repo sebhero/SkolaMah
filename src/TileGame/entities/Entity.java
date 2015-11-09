@@ -5,6 +5,8 @@
 
 package TileGame.entities;
 
+import TileGame.Game;
+
 import java.awt.*;
 
 /**
@@ -16,12 +18,14 @@ import java.awt.*;
  */
 public abstract class Entity {
 
+    protected final Game game;
     //position
     protected float x,y;
     //size
     protected int width, height;
 
-    public Entity(float x, float y, int width, int height) {
+    public Entity(Game game, float x, float y, int width, int height) {
+        this.game = game;
         this.x = x;
         this.y = y;
         this.width = width;

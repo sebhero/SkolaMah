@@ -5,6 +5,7 @@
 
 package TileGame.worlds;
 
+import TileGame.Game;
 import TileGame.tiles.Tile;
 import TileGame.utils.Utils;
 
@@ -16,6 +17,7 @@ import java.awt.*;
 
 public class World {
 
+    private final Game game;
     //map size
     private int width,height;
     //player start pos
@@ -27,8 +29,9 @@ public class World {
      * A world for the player to run around in
      * @param path to file with the data for the world.
      */
-    public World(String path) {
+    public World(Game game, String path) {
 
+        this.game = game;
         loadWorld(path);
     }
 
@@ -71,11 +74,25 @@ public class World {
     public void render(Graphics g) {
 
         Tile t;
+        //saves the offset
+        float xOffset = game.getGameCamera().getxOffset();
+        float yOffset = game.getGameCamera().getyOffset();
 
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        //only show tiles in camera
+        int xStart = (int) Math.max(0,xOffset / Tile.TILE_WIDTH);
+        int yStart = (int) Math.max(0, yOffset / Tile.TILE_HEIGHT);
+        int xEnd = (int) Math.min(width, ((xOffset+game.getWidth())/ Tile.TILE_WIDTH+1));
+        int yEnd = (int) Math.min(height, ((yOffset+game.getHeight())/ Tile.TILE_HEIGHT+1));
+
+
+
+        for (int y = yStart; y < yEnd; y++) {
+            for (int x = xStart; x < xEnd; x++) {
                 t = getTile(x, y);
-                t.render(g,x*Tile.TILE_WIDTH,y*Tile.TILE_HEIGHT);
+                t.render(g,
+                        (int)(x*Tile.TILE_WIDTH - xOffset),
+                        (int)(y*Tile.TILE_HEIGHT - yOffset)
+                );
             }
         }
     }

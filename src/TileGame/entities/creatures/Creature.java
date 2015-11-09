@@ -5,6 +5,7 @@
 
 package TileGame.entities.creatures;
 
+import TileGame.Game;
 import TileGame.entities.Entity;
 
 /**
@@ -25,8 +26,8 @@ public abstract class Creature extends Entity{
     protected float speed = DEFAULT_SPEED;
     protected float xMove, yMove;
 
-    public Creature(float x, float y, int width, int height) {
-        super(x, y, width, height);
+    public Creature(Game game,float x, float y, int width, int height) {
+        super(game,x, y, width, height);
         //set starting health
         xMove =0;
         yMove =0;

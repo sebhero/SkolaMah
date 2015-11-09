@@ -7,6 +7,7 @@ package TileGame;
 
 import TileGame.display.Display;
 import TileGame.gfx.Assets;
+import TileGame.gfx.GameCamera;
 import TileGame.input.KeyManager;
 import TileGame.state.GameState;
 import TileGame.state.MenuState;
@@ -35,6 +36,9 @@ public class Game implements Runnable {
 
     //Input
     private KeyManager keyManager;
+
+    //Camera
+    private GameCamera gameCamera;
 
     public Game(String title,int width, int height) {
         this.width = width;
@@ -151,6 +155,8 @@ public class Game implements Runnable {
         display.getFrame().addKeyListener(keyManager);
         Assets.init();
 
+        gameCamera = new GameCamera(this,0,0);
+
         //set The game state to the game
         gameState = new GameState(this);
         menuState = new MenuState(this);
@@ -164,6 +170,10 @@ public class Game implements Runnable {
      */
     public KeyManager getKeyManager() {
         return keyManager;
+    }
+
+    public GameCamera getGameCamera(){
+        return gameCamera;
     }
 
     /**
@@ -193,5 +203,21 @@ public class Game implements Runnable {
             e.printStackTrace();
         }
 
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
