@@ -43,14 +43,15 @@ public class ObjectArrays {
      * Find the index of a object in the array
      * @param array the array
      * @param o the object
-     * @return 1 if its found else -1 if it didnt find it.
+     * @return the index if its found else -1 if it didnt find it.
      */
     public static int indexOf(Object[] array, Object o) {
-        for (Object currentObject : array) {
-            if (o.equals(currentObject)) {
-                return 1;
+        for (int i = 0; i < array.length; i++) {
+            if (o.equals(array[i])) {
+                return i;
             }
         }
+
         //didnt find the number
         return -1;
     }
@@ -63,7 +64,7 @@ public class ObjectArrays {
      */
     public static boolean member(Object[] array, Object o) {
         int result = indexOf(array, o);
-        if (result == 1) {
+        if (result >= 0) {
             return true;
         }
 

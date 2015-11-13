@@ -1,4 +1,4 @@
-package arrays;
+package P4;
 
 /**
  * Klassen Country lagrar information om ett land. Det är landets namn
