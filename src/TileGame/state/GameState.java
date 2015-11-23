@@ -6,6 +6,7 @@
 package TileGame.state;
 
 import TileGame.Game;
+import TileGame.Handler;
 import TileGame.entities.creatures.Player;
 import TileGame.gfx.Assets;
 import TileGame.tiles.Tile;
@@ -25,12 +26,17 @@ public class GameState extends State{
     private Player player;
     private World world;
 
-    public GameState(Game game) {
-        super(game);
+    public GameState(Handler handler) {
+        super(handler);
+
+        //create world
+        world = new World(handler,"/TileGame/res/world/world1.txt");
+        handler.setWorld(world);
 
         //create player
-        player = new Player(game,100, 100);
-        world = new World(game,"/TileGame/res/world/world1.txt");
+        player = new Player(handler,100, 100);
+
+
 
 
     }

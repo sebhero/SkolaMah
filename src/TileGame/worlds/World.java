@@ -5,7 +5,7 @@
 
 package TileGame.worlds;
 
-import TileGame.Game;
+import TileGame.Handler;
 import TileGame.tiles.Tile;
 import TileGame.utils.Utils;
 
@@ -17,7 +17,8 @@ import java.awt.*;
 
 public class World {
 
-    private final Game game;
+
+    private final Handler handler;
     //map size
     private int width,height;
     //player start pos
@@ -29,9 +30,9 @@ public class World {
      * A world for the player to run around in
      * @param path to file with the data for the world.
      */
-    public World(Game game, String path) {
+    public World(Handler handler, String path) {
 
-        this.game = game;
+        this.handler = handler;
         loadWorld(path);
     }
 
@@ -75,14 +76,14 @@ public class World {
 
         Tile t;
         //saves the offset
-        float xOffset = game.getGameCamera().getxOffset();
-        float yOffset = game.getGameCamera().getyOffset();
+        float xOffset = handler.getGameCamera().getxOffset();
+        float yOffset = handler.getGameCamera().getyOffset();
 
         //only show tiles in camera
         int xStart = (int) Math.max(0,xOffset / Tile.TILE_WIDTH);
         int yStart = (int) Math.max(0, yOffset / Tile.TILE_HEIGHT);
-        int xEnd = (int) Math.min(width, ((xOffset+game.getWidth())/ Tile.TILE_WIDTH+1));
-        int yEnd = (int) Math.min(height, ((yOffset+game.getHeight())/ Tile.TILE_HEIGHT+1));
+        int xEnd = (int) Math.min(width, ((xOffset + handler.getWidth()) / Tile.TILE_WIDTH + 1));
+        int yEnd = (int) Math.min(height, ((yOffset+ handler.getHeight())/ Tile.TILE_HEIGHT+1));
 
 
 
@@ -97,7 +98,11 @@ public class World {
         }
     }
 
-    private Tile getTile(int x, int y) {
+    public Tile getTile(int x, int y) {
+
+        if(x < 0 || y < 0 || x >= width || y >= height)
+            return Tile.dirtTile;
+
         int tileId = mapTiles[x][y];
         Tile t =Tile.tiles[tileId];
         if (t == null) {
@@ -108,4 +113,11 @@ public class World {
     }
 
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }
