@@ -61,8 +61,7 @@ public class SSPController {
 	/**
 	 * Handle when player makes a new choice
 	 * 
-	 * @param playerChoice
-	 *            the new choice from player
+	 * @param playerChoice the new choice from player
 	 */
 	public void newChoice(int playerChoice) {
 

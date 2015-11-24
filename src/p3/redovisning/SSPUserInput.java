@@ -58,6 +58,7 @@ public class SSPUserInput extends JPanel {
 		btnSax = new JButton("Sax");
 		btnBag = new JButton("Påse");
 
+
 		btnNew_game = new JButton("Nytt spel");
 		btnNew_game.setSize(sizeX, sizeY / 3);
 

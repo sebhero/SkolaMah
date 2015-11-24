@@ -20,10 +20,21 @@ public abstract class Wage {
         return id;
     }
 
+    /**
+     * Uses the implemented wage in the child class.
+     * Since this class is abstract and has no real implementation.
+     * @return
+     */
     @Override
     public String toString() {
         return "Id: " + this.id + ", lön denna månad: " + wage() + " kr";
     }
 
+    /**
+     * Must be implemented since its a from a abstract class
+     * @return the wage calculated
+     */
     protected abstract double wage();
+
+
 }

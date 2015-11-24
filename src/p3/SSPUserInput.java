@@ -50,8 +50,7 @@ public class SSPUserInput extends JPanel {
 		pnlChoiceButtons.add(btnSax, BorderLayout.CENTER);
 		pnlChoiceButtons.add(btnPose, BorderLayout.EAST);
 
-		// add new game button
-		btnNewGame = new JButton("Nytt spel");
+
 		// add the action using lambda expressions
 
 		JButton btnEndGame = new JButton("Avsluta");
@@ -79,6 +78,8 @@ public class SSPUserInput extends JPanel {
 		btnSten = new JButton("Sten");
 		btnSax = new JButton("Sax");
 		btnPose = new JButton("Pose");
+		// add new game button
+		btnNewGame = new JButton("Nytt spel");
 
 		btnSten.addActionListener(new ActionListener() {
 
@@ -111,6 +112,7 @@ public class SSPUserInput extends JPanel {
 				controller.newGame();
 			}
 		});
+
 
 		// better way
 		// add the action listner using lambda expressions

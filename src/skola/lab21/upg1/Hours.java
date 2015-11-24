@@ -11,7 +11,7 @@ package skola.lab21.upg1;
 public class Hours extends Wage {
 
 
-    private final double hourlyWage;
+    private double hourlyWage;
     private double hours;
 
     public Hours(long id, double hourlyWage) {
@@ -34,5 +34,9 @@ public class Hours extends Wage {
     @Override
     protected double wage() {
         return hourlyWage*hours;
+    }
+
+    public void setHourlyWage(double hourlyWage) {
+        this.hourlyWage = hourlyWage;
     }
 }

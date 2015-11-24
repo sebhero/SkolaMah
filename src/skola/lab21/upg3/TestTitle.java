@@ -21,7 +21,7 @@ public class TestTitle extends JPanel{
     private Title southTitle = new Title("Diesem Titel in suden sind",Font.ITALIC,10, Color.WHITE, Color.BLACK);
 
     public TestTitle() {
-        setPreferredSize(new Dimension(200,200));
+        setPreferredSize(new Dimension(300,200));
         setLayout(new BorderLayout());
         this.add(northTitle, BorderLayout.NORTH);
         this.add(centerTitle, BorderLayout.CENTER);

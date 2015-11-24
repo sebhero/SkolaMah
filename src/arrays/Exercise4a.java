@@ -21,7 +21,7 @@ public class Exercise4a {
     	String message = "";
 //        String str = JOptionPane.showInputDialog( null, "Mata in heltal separerade med komma-tecken", "1,5,3,4,6,5,3,5,9,7,6");
         //// just for testing
-        String str = "1,2,3,4,5";
+        String str = "1,5,3,4,6,5,3,5,9,7,6";
         int[] test1 = parseString( str );
         int[] test2;
         

@@ -5,13 +5,15 @@
 
 package skola.lab21.upg1;
 
+
+
 /**
  * Created by Sebastian Börebäck on 2015-11-17.
  */
-public class Fulltime extends Wage {
+public class Fulltime extends Wage{
 
 
-    private final double wage;
+    private double wage;
 
     public Fulltime(long id, double wage) {
         super(id);
@@ -26,4 +28,10 @@ public class Fulltime extends Wage {
     protected double wage() {
         return wage;
     }
+
+
+    public void setWage(int wage) {
+        this.wage = wage;
+    }
+
 }

@@ -55,10 +55,8 @@ public class InOut {
             //blir true när det kommer in ett int heltal alltså högre än int min och
             //minde än int max samt är inte "" tomm sträng eller med text
             inputOK = true;
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException | NullPointerException ex) {
             System.out.println("Number ex> "+ex.toString());
-        } catch (NullPointerException ex) {
-            System.out.println("nullpoint ex> "+ex.toString());
         }
         //if its false call it again recursive
         if (inputOK == false) {

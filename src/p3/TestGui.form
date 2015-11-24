@@ -30,6 +30,12 @@
               <text value="Pose"/>
             </properties>
           </component>
+          <component id="ab093" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <text value="Label"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="d4a82" layout-manager="BorderLayout" hgap="0" vgap="0">

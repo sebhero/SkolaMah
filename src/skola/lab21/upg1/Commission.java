@@ -11,7 +11,7 @@ package skola.lab21.upg1;
 public class Commission extends Wage {
 
 
-    private final double rate;
+    private double rate;
     private double sales;
 
     public Commission(long id, double rate) {
@@ -34,5 +34,9 @@ public class Commission extends Wage {
 
     public void setSales(double sales) {
         this.sales = sales;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 }
