@@ -13,13 +13,16 @@ import java.text.MessageFormat;
 public class TestDice {
 
 
-
+    /**
+     * Test the die
+     * @param dice the die
+     * @param nbrOfThrows the number of throws
+     */
     public static void test(Dice dice, int nbrOfThrows) {
         int[] res = new int[dice.getSides()];
 
         for (int i = 0; i < nbrOfThrows; i++) {
-            //increase the value that is thrown.
-            //att the position in the array.
+            //increases the amount of times the number has occured.
             res[dice.throwDice()-1]++;
         }
         for (int i = 0; i < res.length; i++) {
@@ -29,6 +32,11 @@ public class TestDice {
 
     }
 
+    /**
+     * Test cheater and player.
+     * @param player the player
+     * @param nbrOfThrows number of throws.
+     */
     public static void test( Player player, int nbrOfThrows ) {
         if (player instanceof OrdinaryPlayer) {
             OrdinaryPlayer thePlayer = (OrdinaryPlayer) player;

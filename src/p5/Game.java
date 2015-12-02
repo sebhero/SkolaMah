@@ -27,10 +27,10 @@ public class Game {
         p1 = playerThrows(player1, showThrows);
         p2 = playerThrows(player2, showThrows);
         if (p1 > p2) {
-            TextWindow.println(player1.getName() + " vann �ver "
+            TextWindow.println(player1.getName() + " vann över "
                     + player2.getName() + "  " + p1 + "-" + p2);
         } else if (p2 > p1) {
-            TextWindow.println(player2.getName() + " vann �ver "
+            TextWindow.println(player2.getName() + " vann över "
                     + player1.getName() + "  " + p2 + "-" + p1);
         } else {
             TextWindow.println("Oavgjort mellan " + player1.getName() + " och "
