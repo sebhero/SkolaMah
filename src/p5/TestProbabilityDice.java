@@ -17,7 +17,8 @@ public class TestProbabilityDice {
         TestDice.test(dice3,1000000);
         TextWindow.println();
         try {
-            dice1 = new ProbabilityDice(new int[] {0,20,30,10});
+
+           dice1 = new ProbabilityDice(new int[] {0,20,30,10});
         } catch(Exception e) {
         	TextWindow.println(e);
         }

@@ -31,15 +31,22 @@ public class SimpleDice implements Dice {
     }
 
 
+    /**
+     * Retuns a random value which represents the dice throw
+     * @return the int value of the dice throw.
+     */
     @Override
     public int throwDice() {
-        //Returns a random value which represents the dice rolle.
+
         return rnd.nextInt(sides) + 1;
     }
 
+    /**
+     * get the sides of the dice
+     * @return the side of the dice
+     */
     @Override
     public int getSides() {
-        //Returns the sides
         return sides;
     }
 }

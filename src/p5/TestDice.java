@@ -19,6 +19,7 @@ public class TestDice {
      * @param nbrOfThrows the number of throws
      */
     public static void test(Dice dice, int nbrOfThrows) {
+        System.out.println("Test die\n");
         int[] res = new int[dice.getSides()];
 
         for (int i = 0; i < nbrOfThrows; i++) {
