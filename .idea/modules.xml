@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DesignPatterns.iml" filepath="$PROJECT_DIR$/DesignPatterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SkolaMah.iml" filepath="$PROJECT_DIR$/SkolaMah.iml" />
       <module fileurl="file://$PROJECT_DIR$/p4/p4.iml" filepath="$PROJECT_DIR$/p4/p4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testP4/testP4.iml" filepath="$PROJECT_DIR$/testP4/testP4.iml" />
     </modules>
   </component>
 </project>
