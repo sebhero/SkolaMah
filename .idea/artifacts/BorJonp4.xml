@@ -4,7 +4,7 @@
     <root id="archive" name="BorJonp4.jar">
       <element id="module-output" name="p4" />
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/p4/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/DA339A_programmering1/p4/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>

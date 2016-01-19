@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/src/Patterns/Strategy/Animal.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/p2/PaintWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/p2/Race.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/p2/StartRace.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/p2/Text.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/p2/redovisning/Exercise2a.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/p2/redovisning/PaintWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/skola/lab15/FCConverterPanel.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/skola/lab18/Population.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/skola/lab18/Populations.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/skola/lab3/upg5e/PaintWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/skola/lab3/upg5e/PaintWindowDemo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/skola/lab3/upg5g/Program5g.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/Strategy/Animal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/p2/PaintWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/p2/Race.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/p2/StartRace.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/p2/Text.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/p2/redovisning/Exercise2a.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/p2/redovisning/PaintWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/skola/lab15/FCConverterPanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/skola/lab18/Population.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/skola/lab18/Populations.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/skola/lab3/upg5e/PaintWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/skola/lab3/upg5e/PaintWindowDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DA339A_programmering1/Patterns/skola/lab3/upg5g/Program5g.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
