@@ -1,9 +1,9 @@
-/*
+package DA339A_programmering1.p4.src.DA339A_programmering1.Patterns.arrays;/*
  * Author: Sebastian Börebäck
  * Copyright (c) 2015.
  */
 
-package DA339A_programmering1.Patterns.arrays;
+
 
 
 /**
