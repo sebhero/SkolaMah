@@ -184,10 +184,8 @@ public class Rekursion {
 	public long fib(int n) {
 		if (n  <= 2) {
 			fibCount ++;
-			System.out.println(fibCount);
 			return 1;
 		} else {
-			System.out.println("tal1 " + (n - 1)+" tal2 "+(n-2));
 			return fib(n-1)+fib(n-2);
 		}
 	}
