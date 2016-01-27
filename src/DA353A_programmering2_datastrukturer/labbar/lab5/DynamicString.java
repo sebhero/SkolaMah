@@ -4,9 +4,10 @@
  */
 
 package DA353A_programmering2_datastrukturer.labbar.lab5;
-import java.util.Arrays;
+import java.util.*;
+import java.util.Stack;
 
-public class DynamicString  {
+public class DynamicString implements Comparable<DynamicString> {
 
 	private char[] chars;
 
@@ -40,6 +41,9 @@ public class DynamicString  {
     	}
     	chars[index] = chr;
     	length++;
+
+
+//		value = Arrays.copyOf(value, newCapacity);
 	}
 	
 	public void remove(int index) {
@@ -84,7 +88,7 @@ public class DynamicString  {
 
 	public void removeAll() {
 		chars = new char[10];
-		length=10;
+		length=0;
 	}
 
 	public int indexOf(char chr) {
@@ -111,9 +115,71 @@ public class DynamicString  {
 			temp.add(chars[i]);
 		}
 		return temp;
-
 	}
-		
+
+	/**
+	 * Add string to the end of the current string
+	 * @param str the new string
+	 */
+	public void concat(DynamicString str) {
+		int size = str.length();
+		DynamicString tmp = new DynamicString(str);
+		//i < str.length()
+		for (int i = 0; i < tmp.length(); i++) {
+			add(tmp.charAt(i));
+		}
+	}
+
+
+
+	@Override
+	public int compareTo(DynamicString anotherString) {
+
+//		int res = 0;
+//		int len = Math.min(length, anotherString.length);
+//		for(int i=0; i<len && res==0; i++) {
+//			if(chars[i]<anotherString.chars[i])
+//				res = -1;
+//			else if(chars[i]>anotherString.chars[i])
+//				res = 1;
+//		}
+//		if(res==0) {
+//			res = length-anotherString.length;
+//		}
+//		return res;
+
+		int len1 = this.length;
+		int len2 = anotherString.length;
+		int lim = Math.min(len1, len2);
+		char v1[] = chars;
+		char v2[] = anotherString.chars;
+
+		int k = 0;
+		while (k < lim) {
+			char c1 = v1[k];
+			char c2 = v2[k];
+			if (c1 != c2) {
+				return c1 - c2;
+			}
+			k++;
+		}
+		return len1 - len2;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		//return super.equals(obj);
+		if( obj instanceof DynamicString) {
+			if (this.compareTo((DynamicString) obj) == 0) {
+				return true;
+			}
+			return false;
+		}
+		else
+			return false;
+	}
+
 	public static void main(String[] args) {
 
 		//chars keeps track of all the chars in the string
@@ -144,11 +210,36 @@ public class DynamicString  {
 		ds1.add('J');                                       // ds1 -> 'J'
 		ds1.add('a');                                       // ds1 -> 'J','a'
 		ds1.add('a');                                       // ds1 -> 'J','a','a'
-		ds1.add(2,'v');                                     // ds1 -> 'J','a','v','a'
+		ds1.add(2, 'v');                                     // ds1 -> 'J','a','v','a'
 		ds2.remove(4);                                      // ds2 -> 'H','e','j',' ','i','s','a','!'
 		ds2.remove(4);                                      // ds2 -> 'H','e','j',' ','s','a','!'
 		System.out.println("ds1: " + ds1);
 		System.out.println("ds2: " + ds2);
 		System.out.println("ds3: " + ds3);
+
+
+		System.out.println("size " + ds2.length());
+		ds2.concat(ds2);
+		System.out.println(ds2);
+		System.out.println("size "+ds2.length());
+
+//		DynamicString test = new DynamicString("Hello");
+//		DynamicString test2 = test.subString(0,4);
+//		test2.concat(new DynamicString(" yeah!"));
+//		System.out.println(test2);
+//		System.out.println(test2.compareTo(test));
+
+		DynamicString dss1 = new DynamicString("hej");
+		DynamicString dss2 = new DynamicString("hej");
+		DynamicString dss3 = new DynamicString("hejda");
+		String str = "asd";
+		System.out.println(dss1.equals(dss2));
+		System.out.println(dss1.equals(str));
+		System.out.println(dss1.equals(dss3));
+
+
+
 	}
+
+
 }

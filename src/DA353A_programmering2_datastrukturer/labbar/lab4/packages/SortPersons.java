@@ -6,6 +6,7 @@
 package DA353A_programmering2_datastrukturer.labbar.lab4.packages;
 
 import DA353A_programmering2_datastrukturer.labbar.lab4.LastnameAsc;
+import DA353A_programmering2_datastrukturer.labbar.lab4.f4.Sorting;
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ public class SortPersons {
             new Person( "920637-5555", "Tomas", "Rund", 169, 113.2 )};
         
         //Arrays.sort( persons, new IdAscending() );
-	    //Sorting.bubblesort(persons,new IdAscending());
+	    Sorting.bubblesort(persons, new IdAscending());
 	    Arrays.sort( persons, new LastnameAsc());
         for( int i = 0; i < persons.length; i++ )
             System.out.println(persons[ i ]);

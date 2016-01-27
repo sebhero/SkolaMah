@@ -29,8 +29,8 @@ public class DoubleStack implements DStack {
 	@Override
 	public Double pop() {
 		if (!isEmpty()) {
-			--size;
-			return theStack[size];
+			//first it will get theStack[size] den decrease size with 1
+			return theStack[--size];
 		}
 		return null;
 	}
@@ -42,7 +42,7 @@ public class DoubleStack implements DStack {
 
 	@Override
 	public boolean isEmpty() {
-		return size == 0 ? true : false;
+		return size == 0;
 
 	}
 

@@ -62,9 +62,9 @@ public class Exercise2 {
                 .findFirst();
 
         if (found.isPresent()) {
-            found.ifPresent(p -> {
-                System.out.println(MessageFormat.format("{0} {1}", p.getFirstName(), p.getLastName()));
-            });
+            found.ifPresent(p ->
+                System.out.println(MessageFormat.format("{0} {1}", p.getFirstName(), p.getLastName()))
+            );
         } else {
             System.out.println(MessageFormat.format("{0} unknown",socialSecurityNumber ));
         }
@@ -73,9 +73,12 @@ public class Exercise2 {
     
     public boolean containsFirstName( String firstName ) {
         return persons.stream().anyMatch(person -> person.getFirstName().equals(firstName));
+
+
     }
     
     public boolean changeLastName( String socialSecurityNumber, String lastName ) {
+
 
         Optional<Person> found = persons.stream().filter(p -> p.getSocialSecurityNumber().equals(socialSecurityNumber))
                 .findFirst();

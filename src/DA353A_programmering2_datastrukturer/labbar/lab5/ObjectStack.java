@@ -25,8 +25,8 @@ public class ObjectStack implements Stack2 {
         if(isEmpty()) {
             throw new EmptyStackException();
         }
-	    --size;
-	    Object temp = elements[size];
+	    //first it will get the element at elements[size] then decrease size
+	    Object temp = elements[--size];
 	    elements[size] = null;
 
         return temp;

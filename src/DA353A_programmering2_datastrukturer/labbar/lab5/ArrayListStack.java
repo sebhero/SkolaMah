@@ -15,9 +15,10 @@ public class ArrayListStack<T> implements Stack<T> {
 
 	ArrayList<T> elements;
 
+
 	public ArrayListStack() {
 		//create a array of the choosen type of object.
-		elements = new ArrayList<T>();
+		elements = new ArrayList<>();
 	}
 
 
@@ -34,6 +35,7 @@ public class ArrayListStack<T> implements Stack<T> {
 			throw new EmptyStackException();
 		}
 		//remove top element from stack
+		//and "clear to let GC do its work"
 		return elements.remove(elements.size() - 1);
 	}
 
