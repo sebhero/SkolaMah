@@ -57,4 +57,8 @@ public class ArrayListStack<T> implements Stack<T> {
 	public int size() {
 		return elements.size();
 	}
+
+	public boolean empty() {
+		return size() ==0;
+	}
 }
