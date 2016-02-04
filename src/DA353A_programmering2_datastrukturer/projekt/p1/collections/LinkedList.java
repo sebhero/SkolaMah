@@ -222,18 +222,3 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 }
 
 
-//	private int index=0;
-//
-//	public boolean hasNext() {
-//		return index<size;
-//	}
-//
-//	public E next() {
-//		if(index==size)
-//			throw new NoSuchElementException();
-//		return elements[index++];
-//	}
-//
-//	public void remove() {
-//		throw new UnsupportedOperationException();
-//	}
