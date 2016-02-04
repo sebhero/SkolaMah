@@ -3,8 +3,11 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab7.f7;
+package DA353A_programmering2_datastrukturer.projekt.p1.collections;
 
+
+import DA353A_programmering2_datastrukturer.labbar.lab7.f7.List;
+import DA353A_programmering2_datastrukturer.labbar.lab7.f7.ListNode;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
