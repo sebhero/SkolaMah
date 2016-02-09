@@ -101,7 +101,7 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 	/**
 	 * Add data on the index position
 	 * @param index index at which the specified element is to be inserted
-	 * @param data
+	 * @param data the data which position we are looking for.
 	 */
 	public void add(int index, E data) {
 		checkIndex(index);
@@ -226,7 +226,7 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 
 	/**
 	 * Converts the list to a string
-	 * @return
+	 * @return String of the list.
 	 */
 	public String toString() {
 		if (list != null)

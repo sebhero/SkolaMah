@@ -7,7 +7,7 @@ package collections;
 
 /**
  * A list node model. used for linkedlist
- * @param <E>
+ * @param <E> generic type
  * @author Sebastian Boreback
  */
 public class ListNode<E> {
@@ -34,7 +34,7 @@ public class ListNode<E> {
 
 	/**
 	 * Set the data on listnode
-	 * @param data
+	 * @param data the new data for the listnode
 	 */
 	public void setData( E data ) {
         this.data = data;

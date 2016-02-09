@@ -37,7 +37,7 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 
 	/**
 	 * Creates an empty list with initialized capacity
-	 * @param initialCapacity
+	 * @param initialCapacity the initial capacity for the list
 	 */
 	public ArrayList(int initialCapacity) {
 		initialCapacity = Math.max(1, initialCapacity);
@@ -194,7 +194,7 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	/**
 	 * Get index for element
 	 * @param element element to search for
-	 * @return
+	 * @return the index of the element
 	 */
 	public int indexOf(E element) {
 		return indexOf(0, element);
@@ -249,7 +249,7 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 
 	/**
 	 * A iterator to be able to iterate the list
-	 * @return
+	 * @return the list iterator.
 	 */
 	public Iterator<E> iterator() {
 		return new Iter();
