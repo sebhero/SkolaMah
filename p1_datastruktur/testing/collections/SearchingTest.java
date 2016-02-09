@@ -21,7 +21,7 @@ public class SearchingTest {
 	public void setUp() throws Exception {
 		//setup the list
 		list = new ArrayList<>();
-		int[] temp = Utility.randomArray(13, 1, 100);
+		int[] temp = Utility.randomArray(1000_000 , 1, 100);
 		for (int item : temp) {
 			list.add(item);
 		}
@@ -31,22 +31,44 @@ public class SearchingTest {
 	public void testBinearSearch() throws Exception {
 		//Im testing
 		System.out.println("BinarySearch test");
+		System.out.println("size "+list.size());
+
 		//Given
 		Integer lookingFor =new Integer(55);
-		//set it at pos 50;
-		list.set(50, lookingFor);
+		//set it at pos 10;
+		list.set(555, lookingFor);
 		Sorting.sort(list);
-		//When
-		int got = Searching.binearSearch(list, lookingFor);
-		System.out.println(got);
-		//Then
-		System.out.println(list);
-		Assert.assertEquals(50,got);
 
+		//When
+		int got = Searching.binarySearch(list, lookingFor);
+
+		//Then
+		System.out.println("on "+got+": value: "+list.get(got));
+		Assert.assertEquals(lookingFor, list.get(got));
+		System.out.println("size "+list.size());
+		System.out.println();
 	}
 
 	@Test
 	public void testLinearSearch() throws Exception {
+		//Im testing
+		System.out.println("LinearSearch test");
+		System.out.println("size "+list.size());
 
+		//Given
+		Integer lookingFor =new Integer(-1);
+		//set it at pos 10;
+		list.set(555, lookingFor);
+
+		//When
+		int got = Searching.linearSearch(list, lookingFor);
+
+		//Then
+		System.out.println("on "+got+": value: "+list.get(got));
+		Assert.assertEquals(lookingFor, list.get(got));
+		System.out.println("size "+list.size());
+		System.out.println();
 	}
+
+
 }

@@ -8,27 +8,36 @@ package collections;
 import java.util.EmptyStackException;
 
 /**
- * Created by Sebastian Börebäck on 2016-01-26.
+ * @author Sebastian Börebäck on 2016-01-26.
+ * My implemenation of ArrayList-Stack
  */
 public class ArrayListStack<T> implements Stack<T> {
 
 	ArrayList<T> elements;
 
 
+	/**
+	 * create a array of the choosen type of object.
+	 */
 	public ArrayListStack() {
-		//create a array of the choosen type of object.
 		elements = new ArrayList<>();
 	}
 
 
-	@Override
+	/**
+	 * Push a element to the stack
+	 * @param element elementet att lägga på stacken
+	 */
 	public void push(T element) {
 		//add the new element
 		elements.add(element);
 
 	}
 
-	@Override
+	/**
+	 * Pop the last element from the stack
+	 * @return the poped element
+	 */
 	public T pop() {
 		if (isEmpty()) {
 			throw new EmptyStackException();
@@ -38,7 +47,10 @@ public class ArrayListStack<T> implements Stack<T> {
 		return elements.remove(elements.size() - 1);
 	}
 
-	@Override
+	/**
+	 * Peeks on the top element, the next element to pop
+	 * @return the top element / next to pop
+	 */
 	public T peek() {
 		if (isEmpty()) {
 			throw new EmptyStackException();
@@ -47,16 +59,26 @@ public class ArrayListStack<T> implements Stack<T> {
 		return elements.get(elements.size()-1);
 	}
 
-	@Override
+	/**
+	 * Chekc if the Arraylist-stack is empty
+	 * @return true if its empty
+	 */
 	public boolean isEmpty() {
 		return elements.isEmpty();
 	}
 
-	@Override
+	/**
+	 * get the size of the Arraylist-stack
+	 * @return the size of the stack
+	 */
 	public int size() {
 		return elements.size();
 	}
 
+	/**
+	 * Check if the stack is empty
+	 * @return true if its empty
+	 */
 	public boolean empty() {
 		return size() ==0;
 	}

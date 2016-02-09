@@ -139,12 +139,25 @@ public class Utility {
 		array[j] = temp;
 	}
 
+	/**
+	 * Swap double a array
+	 * @param array double array i want to use.
+	 * @param i first element to swap.
+	 * @param j second element to swap.
+	 */
 	public static void swap(double[] array, int i, int j) {
 		double temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
 	}
 
+	/**
+	 * Swap Arraylist<E>
+	 * @param array the Arraylist i want to use.
+	 * @param firstPos first element to swap
+	 * @param secondPos second element to swap.
+	 * @param <E>
+	 */
 	private static <E> void swap(ArrayList<E> array, int firstPos, int secondPos) {
 		E temp = array.get(firstPos);
 		array.set(firstPos, array.get(secondPos));

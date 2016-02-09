@@ -16,25 +16,22 @@ import java.util.Arrays;
 public class SortingTest {
 
 
-	private ArrayList<Integer> list;
+	private ArrayList<Double> list;
 	private double[] dbArr;
 
 	@Before
 	public void setUp() throws Exception {
 		//setup the list
-		int size = 100;
+		int size = 100_00;
 		list = new ArrayList<>(size);
 		dbArr = new double[size];
 		int[] tempArr = new int[size];
 		for (int i = 0; i < size; i++) {
-			list.add(i);
+			list.add((double) i);
 			dbArr[i]=i;
 		}
 		Utility.shuffle(list);
 		Utility.shuffle(dbArr);
-
-
-
 	}
 
 	@Test

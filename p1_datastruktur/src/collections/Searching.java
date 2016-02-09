@@ -5,21 +5,24 @@
 
 package collections;
 
-import java.text.MessageFormat;
-
 /**
  * Created by Sebastian Börebäck on 2016-02-08.
  */
 public class Searching {
 
-	public static <E> int binearSearch(ArrayList<E> list, E element) {
+	/**
+	 * BinaySearch search through a list using binary search
+	 * @param list the list im searching through
+	 * @param element the element im looking for
+	 * @param <E> the list is generic
+	 * @return int the index of element
+	 */
+	public static <E> int binarySearch(ArrayList<E> list, E element) {
 		int res = -1, compare, min = 0, max = list.size() - 1, pos;
 		Comparable comp = (Comparable)element;
 		while( ( min <= max ) && ( res == -1 ) ) {
 			pos = (min + max) / 2;
 			compare = comp.compareTo( list.get( pos ) );
-			System.out.println(MessageFormat.format("pos: {2} ,Checked: {0} and got: {1}", list.get(pos), compare,pos));
-
 			if( compare == 0 )
 				res = pos;
 			else if( compare < 0 )
@@ -30,6 +33,13 @@ public class Searching {
 		return res;
 	}
 
+	/**
+	 * LinearSearch searching through a list using linear search
+	 * @param list the list im searching through
+	 * @param element the element im looking for
+	 * @param <E> the list is generic
+	 * @return int the index of element
+	 */
 	public static <E> int linearSearch(List<E> list, E element) {
 		int res = -1;
 		for( int i=0; ( i<list.size()) && ( res == -1 ); i++ ) {
@@ -38,8 +48,5 @@ public class Searching {
 		}
 		return res;
 	}
-
-
-
 
 }
