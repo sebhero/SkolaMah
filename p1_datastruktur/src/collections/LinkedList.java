@@ -107,7 +107,7 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 		checkIndex(index);
 
 		if (index == 0) {
-			list = new ListNode<E>(data, list);
+			list = new ListNode<>(data, list);
 		} else {
 			//add on end
 			//get last
@@ -181,9 +181,23 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 	 * Clear the linked list.
 	 */
 	public void clear() {
-		while (size() >0) {
-			removeLast();
+
+
+		//improved, no calls to locate
+		ListNode<E> node = list;
+		ListNode<E> oldNode = list;
+		while (node != null) {
+			oldNode = node;
+			node = node.getNext();
+			setNull(oldNode);
 		}
+
+		list = setNull(list);
+
+		//old
+//		while (size() >0) {
+//			removeLast();
+//		}
 	}
 
 	/**

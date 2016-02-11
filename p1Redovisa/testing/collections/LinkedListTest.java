@@ -11,7 +11,7 @@ import org.junit.Test;
 import java.util.Iterator;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Created by Sebastian Börebäck on 2016-02-11.
  */
 public class LinkedListTest {
 
@@ -41,6 +41,7 @@ public class LinkedListTest {
 
 	}
 
+
 	@Test
 	public void testClear() throws Exception {
 		//Im testing
@@ -60,4 +61,5 @@ public class LinkedListTest {
 		Assert.assertEquals(0,list.size());
 
 	}
+
 }

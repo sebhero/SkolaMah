@@ -6,7 +6,6 @@
 package collections;
 
 
-
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -24,8 +23,12 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * Increase the size of the array that the Arraylist uses
 	 */
 	private void grow() {
-		E[] temp = Arrays.copyOf(elements, size * 2);
-		elements = temp;
+		//old
+//		E[] temp = Arrays.copyOf(elements, size * 2);
+//		elements = temp;
+
+		//fix
+		elements = Arrays.copyOf(elements, size * 2);
 	}
 
 	/**
@@ -42,6 +45,7 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	public ArrayList(int initialCapacity) {
 		initialCapacity = Math.max(1, initialCapacity);
 		elements = (E[])new Object[initialCapacity];
+
 	}
 
 	/**
@@ -55,9 +59,14 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 		if(size==elements.length)
 			grow();
 
+		//old
+		/**
 		for(int i=size; i>index; i--) {
 			elements[i]=elements[i-1];
 		}
+		* */
+		System.arraycopy(elements, index, elements, index + 1, size - index);
+
 		elements[index] = element;
 		size++;
 	}
@@ -67,7 +76,9 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @param element element to be appended to this list
 	 */
 	public void add(E element) {
-		add(size,element);
+		//old
+//		add(size,element);
+		addLast(element);
 	}
 
 	/**
@@ -75,7 +86,6 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @param element element to be inserted at the beginning of this list
 	 */
 	public void addFirst(E element) {
-		// Laboration, uppgift 1b
 		add(0, element);
 	}
 
@@ -84,7 +94,6 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @param element element to be appended at the end of this list
 	 */
 	public void addLast(E element) {
-		// Laboration, uppgift 1b
 		add(size, element);
 	}
 
@@ -94,7 +103,6 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @return the removed element
 	 */
 	public E remove(int index) {
-		// Laboration, uppgift 1c
 		checkIndex(index);
 		E oldValue = elements[index];
 
@@ -175,7 +183,6 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @return the old element at position
 	 */
 	public E set(int index, E element) {
-		// Laboration, uppgift 1f
 		checkIndex(index);
 		E oldValue = elements[index];
 		elements[index] = element;
@@ -207,6 +214,9 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @return the element on the index
 	 */
 	public int indexOf(int startIndex, E element) {
+		//added check index because start could be outofbounds
+		checkIndex(startIndex);
+
 		if (element == null) {
 			for (int i = startIndex; i < size; i++) {
 				if (elements[i] == null) {
@@ -276,17 +286,28 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 */
 	private class Iter implements Iterator<E> {
 		private int index=0;
-		
+
+		/**
+		 * Check there is a next.
+		 * @return true if there is a next element in list
+		 */
 		public boolean hasNext() {
 			return index<size;
 		}
-		
+
+		/**
+		 * gets the next element in list
+		 * @return the next element in list
+		 */
 		public E next() {
 			if(index==size)
 				throw new NoSuchElementException();
 			return elements[index++];
 		}
-		
+
+		/**
+		 * @deprecated Not implemented
+		 */
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}

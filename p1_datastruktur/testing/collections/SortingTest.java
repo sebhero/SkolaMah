@@ -22,17 +22,18 @@ public class SortingTest {
 	@Before
 	public void setUp() throws Exception {
 		//setup the list
-		int size = 100_00;
+		int size = 100_000;
 		list = new ArrayList<>(size);
 		dbArr = new double[size];
-		int[] tempArr = new int[size];
-		for (int i = 0; i < size; i++) {
-			list.add((double) i);
-			dbArr[i]=i;
+//		int[] tempArr = new int[size];
+		int[] temp = Utility.randomArray(size, 1, 100);
+		for (int i = 0; i < temp.length; i++) {
+			dbArr[i] = temp[i];
+			list.add((double) temp[i]);
 		}
-		Utility.shuffle(list);
-		Utility.shuffle(dbArr);
+
 	}
+
 
 	@Test
 	public void testQuickSort() throws Exception {
@@ -62,4 +63,6 @@ public class SortingTest {
 		System.out.println("sorted");
 		System.out.println(list);
 	}
+
+
 }

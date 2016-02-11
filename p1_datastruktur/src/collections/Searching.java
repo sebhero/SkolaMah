@@ -23,9 +23,10 @@ public class Searching {
 		while( ( min <= max ) && ( res == -1 ) ) {
 			pos = (min + max) / 2;
 			compare = comp.compareTo( list.get( pos ) );
-			if( compare == 0 )
+			if (compare == 0) {
 				res = pos;
-			else if( compare < 0 )
+			}
+			else if (compare < 0)
 				max = pos - 1;
 			else
 				min = pos + 1;
@@ -43,8 +44,10 @@ public class Searching {
 	public static <E> int linearSearch(List<E> list, E element) {
 		int res = -1;
 		for( int i=0; ( i<list.size()) && ( res == -1 ); i++ ) {
-			if( element.equals(list.get(i)) )
-				res = i;
+			if (element.equals(list.get(i))) {
+				 res = i;
+			}
+
 		}
 		return res;
 	}

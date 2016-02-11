@@ -10,9 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Created by Sebastian Börebäck on 2016-02-11.
  */
 public class SearchingTest {
+
 
 	private ArrayList<Integer> list;
 
@@ -27,7 +28,6 @@ public class SearchingTest {
 		}
 	}
 
-
 	@Test
 	public void testBinearSearch() throws Exception {
 		//Im testing
@@ -38,10 +38,10 @@ public class SearchingTest {
 		Integer lookingFor =new Integer(55);
 		//set it at pos 10;
 		list.set(555, lookingFor);
-		Sorting.sort(list);
+		Sorting.mergesort(list);
 
 		//When
-		int got = Searching.binarySearch(list, lookingFor);
+		int got = Searching.binearSearch(list, lookingFor);
 
 		//Then
 		System.out.println("on "+got+": value: "+list.get(got));
@@ -70,6 +70,5 @@ public class SearchingTest {
 		System.out.println("size "+list.size());
 		System.out.println();
 	}
-
 
 }
