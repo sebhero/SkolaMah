@@ -1,12 +1,8 @@
-/*
- * Author: Sebastian Börebäck
- * Copyright (c) 2016.
- */
-
 package collections;
 
 /**
- * A list node model. used for linkedlist
+ * A list node model, the node is used by the LinkedList.
+ * it holds the information about what data is on the node and which node is next.
  * @param <E> generic type
  * @author Sebastian Boreback
  */

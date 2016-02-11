@@ -11,10 +11,15 @@ import org.junit.Test;
 import java.util.Iterator;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Test the LinkedList
+ * @author Sebastian Börebäck on 2016-02-08.
  */
 public class LinkedListTest {
 
+	/**
+	 * Test iterating through a LinkedList
+	 * @throws Exception
+	 */
 	@Test
 	public void testIterator() throws Exception {
 		//Im testing
@@ -41,6 +46,10 @@ public class LinkedListTest {
 
 	}
 
+	/**
+	 * Test clearing a LinkedList
+	 * @throws Exception
+	 */
 	@Test
 	public void testClear() throws Exception {
 		//Im testing

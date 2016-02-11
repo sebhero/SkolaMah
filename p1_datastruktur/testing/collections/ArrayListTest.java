@@ -10,11 +10,16 @@ import org.junit.Test;
 import java.util.Iterator;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Test of ArrayList
+ * @author Sebastian Börebäck on 2016-02-08.
  */
 public class ArrayListTest {
 
 
+	/**
+	 * Test Iteration of a Arraylist
+	 * @throws Exception
+	 */
 	@Test
 	public void testIterator() throws Exception {
 		//Im testing

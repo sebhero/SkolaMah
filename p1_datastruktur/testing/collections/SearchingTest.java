@@ -10,13 +10,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Test the Sorting class
+ * @author Sebastian Börebäck on 2016-02-08.
  */
 public class SearchingTest {
 
 	private ArrayList<Integer> list;
 
 
+	/**
+	 * Setup a testing enviroment
+	 * Generates a Integer Arraylist with random values to search through.
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		//setup the list
@@ -28,6 +34,11 @@ public class SearchingTest {
 	}
 
 
+	/**
+	 * BinarySeach test.
+	 * Sorts the list with mergsort and uses binaryseach to find a value.
+	 * @throws Exception
+	 */
 	@Test
 	public void testBinearSearch() throws Exception {
 		//Im testing
@@ -50,6 +61,10 @@ public class SearchingTest {
 		System.out.println();
 	}
 
+	/**
+	 * Searches through a Arraylist using the LinearSearch
+	 * @throws Exception
+	 */
 	@Test
 	public void testLinearSearch() throws Exception {
 		//Im testing

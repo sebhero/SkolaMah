@@ -1,12 +1,9 @@
-/*
- * Author: Sebastian Börebäck
- * Copyright (c) 2016.
- */
+
 
 package collections;
 
 /**
- * My implementation of Quicksort
+ * Quicksort sorts a double array using the quicksort algorithm.
  * @author Sebastian Börebäck on 2016-01-25.
  */
 public class QuickSort {

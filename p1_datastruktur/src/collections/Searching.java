@@ -6,7 +6,10 @@
 package collections;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Searching Implements Binarysearch Algorithm and Linearseach algorithm.
+ * Used for searching through Arraylist using binarysearch and
+ * linearseach for searching though classes implementing the List interface.
+ * @author Sebastian Börebäck on 2016-02-08.
  */
 public class Searching {
 

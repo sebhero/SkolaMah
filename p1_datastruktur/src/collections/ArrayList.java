@@ -1,17 +1,12 @@
-/*
- * Author: Sebastian Börebäck
- * Copyright (c) 2016.
- */
-
 package collections;
-
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/***
- * A Arraylist. My implemenation of javas Arraylist
+/**
+ * Resizable-array implementation of the List interface.
+ * Where user can add, remove element, get and set element in diffrent positions.
  * @author Sebastian Börebäck
  * @param <E> the type of ArrayList
  */

@@ -8,6 +8,8 @@ package collections;
 import java.util.EmptyStackException;
 
 /**
+ * Stack implementation using a ArrayList.
+ * There you can stack elements on it.
  * @author Sebastian Börebäck on 2016-01-26.
  * My implemenation of ArrayList-Stack
  */
@@ -25,8 +27,8 @@ public class ArrayListStack<T> implements Stack<T> {
 
 
 	/**
-	 * Push a element to the stack
-	 * @param element elementet att lägga på stacken
+	 * Push a element to the top of the stack
+	 * @param element elementet that you want to push on top of the stack.
 	 */
 	public void push(T element) {
 		//add the new element
@@ -75,11 +77,5 @@ public class ArrayListStack<T> implements Stack<T> {
 		return elements.size();
 	}
 
-	/**
-	 * Check if the stack is empty
-	 * @return true if its empty
-	 */
-	public boolean empty() {
-		return size() ==0;
-	}
+
 }

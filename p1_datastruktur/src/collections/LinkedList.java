@@ -1,8 +1,3 @@
-/*
- * Author: Sebastian Börebäck
- * Copyright (c) 2016.
- */
-
 package collections;
 
 
@@ -10,8 +5,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /***
- * My Linkedlist implementaiton
- *
+ * LinkedList A list of element linked together.
+ * implementing the Iterable and list interface.
  * @author Sebastian Boreback
  * @param <E> generic type
  */
@@ -45,7 +40,7 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 	}
 
 	/**
-	 * Get element at index
+	 * Get element from given index
 	 * @param index index of the element to return
 	 * @return the element data at index
 	 */
@@ -57,9 +52,9 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 	}
 
 	/**
-	 * Set a element at index
+	 * Set a new data at a given index
 	 * @param index index of the element to replace
-	 * @param data
+	 * @param data the new data for the index.
 	 * @return the old data at index.
 	 */
 	public E set(int index, E data) {

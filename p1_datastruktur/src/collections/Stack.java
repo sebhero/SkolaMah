@@ -26,7 +26,7 @@ public interface Stack<T> {
     
     /**
      * Returnerar true om stacken inte innehåller några element och false om det finns element i stacken.
-     * @return
+     * @return true if is empty
      */
     public boolean isEmpty();
     

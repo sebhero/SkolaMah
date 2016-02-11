@@ -6,7 +6,9 @@
 package collections;
 
 /**
- * Created by Sebastian Börebäck on 2016-02-08.
+ * Sorting sorts Arraylists using the mergsort algorithm and
+ * sorts double array using the quicksort algorithm.
+ * @author Sebastian Börebäck on 2016-02-08.
  */
 public class Sorting {
 

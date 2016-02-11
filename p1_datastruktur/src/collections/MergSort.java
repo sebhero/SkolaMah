@@ -1,12 +1,8 @@
-/*
- * Author: Sebastian Börebäck
- * Copyright (c) 2016.
- */
 
 package collections;
 
 /**
- * My implementaion of the mergsort
+ * MergSort sorts a Arraylist using the Mergsort algorithm.
  * @author Sebastian Börebäck on 2016-02-08.
  */
 public class MergSort {
