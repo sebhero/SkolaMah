@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SkolaMah.iml" filepath="$PROJECT_DIR$/SkolaMah.iml" />
-      <module fileurl="file://$PROJECT_DIR$/p1Redovisa/p1Redovisa.iml" filepath="$PROJECT_DIR$/p1Redovisa/p1Redovisa.iml" />
       <module fileurl="file://$PROJECT_DIR$/p1_datastruktur/p1_datastruktur.iml" filepath="$PROJECT_DIR$/p1_datastruktur/p1_datastruktur.iml" />
     </modules>
   </component>
