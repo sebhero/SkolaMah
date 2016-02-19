@@ -30,5 +30,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="fourinarowdist" level="project" />
   </component>
 </module>
