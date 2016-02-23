@@ -3,19 +3,19 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab12;
+package DA353A_programmering2_datastrukturer.labbar.lab12.assets;
 import javax.swing.*;
 import java.awt.*;
 
-public class ShowAVL<K,V> extends JLabel {
-    private AVLNode<K,V> node;
+public class ShowNode<K,V> extends JLabel {
+    private BSTNode<K,V> node;
     
-    public ShowAVL( AVLNode<K,V> node, int width, int height ) {
+    public ShowNode( BSTNode<K,V> node, int width, int height ) {
         this.node = node;
         this.setPreferredSize( new Dimension( width, height ) ); // beräknas avseende djup
     }
     
-    public void setNode( AVLNode<K,V> node ) {
+    public void setNode( BSTNode<K,V> node ) {
         this.node = node;
         repaint();
     }
@@ -33,7 +33,7 @@ public class ShowAVL<K,V> extends JLabel {
         }
     }
     
-    public void showNodes(Graphics g, AVLNode<K,V> node, int level, int x, int y, int width, int height, int dx, int lineX) {
+    public void showNodes(Graphics g, BSTNode<K,V> node, int level, int x, int y, int width, int height, int dx, int lineX) {
         if(node!=null) {
             showNodes(g,node.left,level+1,x-dx,y+height,width,height,dx/2,x+width/2);
             showNode( g, node, x+width/8 ,y+height/8 ,width-width/4 ,height-height/4 );
@@ -44,12 +44,12 @@ public class ShowAVL<K,V> extends JLabel {
         }
     }
     
-    public void showNode(Graphics g, AVLNode<K,V> node, int x, int y, int width, int height) {
+    public void showNode(Graphics g, BSTNode<K,V> node, int x, int y, int width, int height) {
         g.setFont(new Font("SansSerif",Font.BOLD,12));
         g.setColor(Color.cyan);
         g.fillRect(x,y,width,height);
         g.setColor(Color.black);
         g.drawRect(x,y,width,height);
-        g.drawString(node.key.toString()+","+node.height(),x+4,y+height/2+4);
+        g.drawString(node.key.toString(),x+4,y+height/2+4);
     }
 }

@@ -5,6 +5,7 @@
 
 package DA353A_programmering2_datastrukturer.labbar.lab12;
 
+import DA353A_programmering2_datastrukturer.labbar.lab12.assets.BinarySearchTree;
 import org.junit.Test;
 
 /**

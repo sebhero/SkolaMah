@@ -3,7 +3,7 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab12;
+package DA353A_programmering2_datastrukturer.labbar.lab12.assets;
 
 class AVLNode<K,V> {
     K key;

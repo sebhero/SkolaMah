@@ -3,7 +3,7 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab12;
+package DA353A_programmering2_datastrukturer.labbar.lab12.assets;
 
 class BSTNode<K,V> {
     K key;

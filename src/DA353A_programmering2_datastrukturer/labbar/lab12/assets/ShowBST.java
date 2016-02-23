@@ -3,14 +3,14 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab12;
+package DA353A_programmering2_datastrukturer.labbar.lab12.assets;
 import javax.swing.*;
 import java.awt.*;
 
-public class ShowNode<K,V> extends JLabel {
+public class ShowBST<K,V> extends JLabel {
     private BSTNode<K,V> node;
     
-    public ShowNode( BSTNode<K,V> node, int width, int height ) {
+    public ShowBST( BSTNode<K,V> node, int width, int height ) {
         this.node = node;
         this.setPreferredSize( new Dimension( width, height ) ); // beräknas avseende djup
     }
