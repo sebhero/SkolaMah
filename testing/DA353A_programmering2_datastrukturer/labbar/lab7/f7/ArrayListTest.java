@@ -53,6 +53,7 @@ public class ArrayListTest {
 		Assert.assertEquals(1, (int)list.get(1));
 		Assert.assertEquals(2, (int)list.get(2));
 
+		System.out.println(list);
 		//extra
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
@@ -80,13 +81,15 @@ public class ArrayListTest {
 		list.add(2);
 		list.add(3);
 		list.add(4);
+		System.out.println(list);
 		//When
 		int got = list.remove(1);
 
 		//extra
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i));
+//		}
+		System.out.println(list);
 		System.out.println("got "+got);
 
 		//Then
@@ -132,7 +135,7 @@ public class ArrayListTest {
 		list.add(4);
 		//When
 		try {
-			list.get(4);
+			list.get(1000);
 		} catch (ArrayIndexOutOfBoundsException e) {
 		//Then
 			Assert.assertTrue(e instanceof ArrayIndexOutOfBoundsException);

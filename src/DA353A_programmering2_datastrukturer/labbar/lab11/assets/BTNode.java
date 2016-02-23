@@ -7,6 +7,11 @@ package DA353A_programmering2_datastrukturer.labbar.lab11.assets;
 //import laboration8.LinkedQueue;
 
 import DA353A_programmering2_datastrukturer.labbar.lab8.LinkedQueue;
+import DA353A_programmering2_datastrukturer.projekt.p1.collections.ArrayList;
+import DA353A_programmering2_datastrukturer.projekt.p1.collections.LinkedList;
+
+import java.util.Iterator;
+
 
 public class BTNode<V> {
 	private V value;
@@ -123,5 +128,71 @@ public class BTNode<V> {
 		}
 
 		return current;
+	}
+
+
+	public void collectPreorder(ArrayList<V> list) {
+//		list.add(this.value);
+//		//if left has something preOrder its childes
+//		if (this.left != null) {
+//			this.left.collectPreorder(list);
+//		}
+//		//Done with left side do right side preOrder
+//		if (this.right != null) {
+//			this.right.collectPreorder(list);
+//		}
+
+//		Action<V> a = new Action<V>() {
+//			@Override
+//			public void action(V value) {
+//				list.add(V value);
+//			}
+//		};
+
+//		Action<V> a = value1 -> list.add(value1);
+//		preorder(value1 -> list.add(value1));
+
+		preorder(a -> list.add(a));
+
+	}
+
+	public void collectLevelOrder(LinkedList<V> list) {
+		levelOrder(a -> list.add(a));
+	}
+
+	public void collect(ArrayList<V> list, Filter<V> filter) {
+//		if (this.left != null) {
+//			this.left.collect(list, filter);
+//		}
+//
+//		if (filter.accept(this.value)) {
+//			list.add(this.value);
+//		}
+//
+//		if (this.right != null) {
+//			this.right.collect(list,filter);
+//		}
+
+
+		inorder(a -> {
+			if (filter.accept(a)) {
+				list.add(a);
+			}
+		});
+
+
+	}
+
+	public ArrayList<V> collect(Filter<V> filter) {
+
+		ArrayList<V> list = new ArrayList();
+
+		inorder(a -> {
+			if (filter.accept(a)) {
+				list.add(a);
+			}
+		});
+		return list;
+
 	}
 }

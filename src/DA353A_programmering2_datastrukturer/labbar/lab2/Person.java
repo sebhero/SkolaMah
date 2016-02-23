@@ -10,6 +10,10 @@ public class Person {
     private String familyName;
     private int age;
 
+	String tele1;
+	String tele2;
+	String tele3;
+
     public Person(String firstName, String familyName, int age) {
         this.firstName = firstName;
         this.familyName = familyName;
@@ -22,6 +26,7 @@ public class Person {
 
     public String getFamilyName() {
         return this.familyName;
+
     }
 
     public String getFirstName() {

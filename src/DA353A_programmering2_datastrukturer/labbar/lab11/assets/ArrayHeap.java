@@ -8,11 +8,57 @@ package DA353A_programmering2_datastrukturer.labbar.lab11.assets;
 import java.util.Random;
 import java.util.Comparator;
 
+
 public class ArrayHeap<E> {
 	private E[] list;
 	private int size;
 	private Comparator<E> comp;
-	
+
+	/**
+	 * Upg 7b
+	 * @param elements
+	 */
+	public ArrayHeap(E[] elements) {
+		this.list = elements;
+		size = list.length;
+		comp = new Comp();
+		heapify();
+	}
+
+	/**
+	 * 7b
+	 * Min heapify
+	 */
+	private void heapify() {
+		for (int parent = (size -2)/2; parent >= 0; parent--) {
+			siftDown(parent);
+		}
+	}
+
+	/**
+	 * Sorterar en array avtagande 100 -> 0
+	 * @param elements
+	 * @param <E>
+	 */
+	public static <E> void sort(E[] elements) {
+
+		ArrayHeap ah = new ArrayHeap(elements, new ReverseComparable<>());
+
+		for (int i = elements.length-1; i >= 0; i--) {
+			elements[i] = (E) ah.delete();
+		}
+
+	}
+
+	public ArrayHeap(E[] elements, Comparator comparator) {
+
+		this.list = elements;
+		size = elements.length;
+		comp = comparator;
+		heapify();
+
+	}
+
 	public ArrayHeap(int initialCapacity) {
 		initialCapacity = Math.max(initialCapacity, 20);
 		list = (E[])(new Object[initialCapacity]);

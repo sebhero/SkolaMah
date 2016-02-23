@@ -31,7 +31,7 @@ public class TestAdd {
 ////        if( n==0 ) {
 ////            newNode = new ObjectNode( v, list );
 ////            list = newNode;
-////        } else {
+////        } else {str.append( " --> {");
 //            ObjectNode node = list;
 //            for (int currentPos = 0; currentPos < n - 1; currentPos++) {
 //                node = node.getNext();

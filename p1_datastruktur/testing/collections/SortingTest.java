@@ -28,7 +28,7 @@ public class SortingTest {
 	@Before
 	public void setUp() throws Exception {
 		//setup the list
-		int size = 100_000;
+		int size = 1000_000;
 		list = new ArrayList<>(size);
 		dbArr = new double[size];
 //		int[] tempArr = new int[size];

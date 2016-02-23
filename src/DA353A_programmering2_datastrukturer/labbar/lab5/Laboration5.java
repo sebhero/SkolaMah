@@ -46,5 +46,7 @@ public class Laboration5 {
         lab6.uppgift5();
 	    System.out.println();
 	    lab6.uppgift6();
+        //tesat
+
     }
 }

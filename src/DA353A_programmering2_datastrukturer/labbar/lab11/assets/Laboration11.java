@@ -19,7 +19,7 @@ public class Laboration11 {
 		} else {
 			System.out.println("Finns ej");
 		}
-//        tree.showTree();
+        tree.showTree();
 	}
 
 	public void exercise2() {
@@ -44,7 +44,7 @@ public class Laboration11 {
 
 	public static void main(String[] args) {
 		Laboration11 lab11 = new Laboration11();
-		lab11.exercise1();
+		lab11.exercise2();
 	}
 }
 

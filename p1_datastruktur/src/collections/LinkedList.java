@@ -177,22 +177,22 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 	 */
 	public void clear() {
 
-
-		//improved, no calls to locate
-		ListNode<E> node = list;
-		ListNode<E> oldNode = list;
-		while (node != null) {
-			oldNode = node;
-			node = node.getNext();
-			setNull(oldNode);
-		}
-
-		list = setNull(list);
+//
+//		//improved, no calls to locate
+//		ListNode<E> node = list;
+//		ListNode<E> oldNode = list;
+//		while (node != null) {
+//			oldNode = node;
+//			node = node.getNext();
+//			setNull(oldNode);
+//		}
+//
+//		list = setNull(list);
 
 		//old
-//		while (size() >0) {
-//			removeLast();
-//		}
+		while (size() >0) {
+			removeLast();
+		}
 	}
 
 	/**

@@ -58,7 +58,7 @@ public class ArrayList<E> implements List<E> {
 		// Laboration, uppgift 1c
 		checkIndex(index);
 		E oldValue = elements[index];
-
+//
 //		for (int i = index; i+1 < elements.length; i++) {
 //			elements[i] = elements[i + 1];
 //		}
@@ -91,6 +91,7 @@ public class ArrayList<E> implements List<E> {
 		 * then size = size - 1
 		 */
 		elements[--size] = null; // clear to let GC do its work
+
 
 		return oldValue;
 	}
@@ -163,15 +164,29 @@ public class ArrayList<E> implements List<E> {
 	}
 	
 	public String toString() {
-		StringBuilder res = new StringBuilder("[ ");
+		StringBuilder res = new StringBuilder("[ { ");
 		for(int i=0; i<size; i++) {
-			res.append(elements[i]);
+			res.append(elements[i]+" }");
 			if(i<size-1)
-				res.append("; ");
+				res.append(" --> \t{ ");
 		}
 		res.append(" ]");
 		return res.toString();
 	}
+
+//	public String toString() {
+//		StringBuilder str = new StringBuilder("[ ");
+//		str.append("{ "+data.toString()+" }");
+//		ObjectNode node = next;
+//		while (node != null) {
+//			str.append(" --> \t{ ");
+//			str.append(node.getData().toString());
+//			str.append(" }");
+//			node = node.getNext();
+//		}
+//		str.append(" ]");
+//		return str.toString();
+//	}
 
 	public Iterator<E> iterator() {
 		return new Iter();

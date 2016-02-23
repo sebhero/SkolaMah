@@ -7,6 +7,7 @@ package DA353A_programmering2_datastrukturer.labbar.lab7;
 
 
 import DA353A_programmering2_datastrukturer.labbar.lab7.f7.ObjectNode;
+import com.sun.xml.internal.bind.v2.TODO;
 
 public class Laboration7a {
     
@@ -92,8 +93,14 @@ public class Laboration7a {
         System.out.println( list );
         
         // Komplettera med kod
+
+	    /*
+	    tar bort pos3 från listan.
+	    först så länkar jag om att pos2 pekar på pos4.
+	    därefter sätter jag pos3 = null så att GC kan ta bort den.
+	     */
 	    pos2.setNext(pos4);
-	    pos3 = null;
+	    pos3 = null;//to help GC
 
         System.out.println( list );
     }
@@ -120,6 +127,11 @@ public class Laboration7a {
         System.out.println( list );
         
         // Komplettera med kod
+	    // TODO redovisa
+	    /**
+	     * remove the obj list and pos1
+	     * then link list to pos2
+	     */
 	    pos1 = null;
 	    list = null;
 	    list = pos2;
@@ -132,7 +144,14 @@ public class Laboration7a {
         System.out.println( list );
         
         // Komplettera med kod
+	    // TODO Redovisa
+	    /**
+	     * First i get what is on 2 steps ahead.(pos2)
+	     * then i link list to start from that pos.
+	     */
 	    ObjectNode temp = list.getNext().getNext();
+	    list.getNext().setNext(null);
+	    list.setNext(null);
 	    list = temp;
 
         System.out.println( list );
@@ -149,9 +168,16 @@ public class Laboration7a {
         System.out.println( list );
         
         // Komplettera med kod
+	    //ta bort pos1
+	    pos1.setNext(null);
 	    pos1 =null;
+
+	    //list pekar direkt till pos2
         list.setNext(pos2);
+	    //ta bort pos3
+	    pos3.setNext(null);
 	    pos3 = null;
+	    //pos2 pekar direkt po pos4
 	    pos2.setNext(pos4);
         System.out.println( list );
     }    
@@ -165,7 +191,7 @@ public class Laboration7a {
 //        Laboration7a.exercise2e();
 //        Laboration7a.exercise2f();
 //        Laboration7a.exercise2g();
-//        Laboration7a.exercise2h();
-        Laboration7a.exercise2i();
+        Laboration7a.exercise2h();
+//        Laboration7a.exercise2i();
     }
 }

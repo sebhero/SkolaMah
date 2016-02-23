@@ -15,5 +15,11 @@ public class TestDoubleStack {
         System.out.println( "Första element = " + stack.peek() );
         while( !stack.isEmpty() )
             System.out.println( "Element = " + stack.pop() +", size = " + stack.size() );
+
+
+
+
     }
+
+
 }

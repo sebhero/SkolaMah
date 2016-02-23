@@ -4,6 +4,7 @@
  */
 
 package DA353A_programmering2_datastrukturer.labbar.lab5;
+
 import java.util.*;
 import java.util.Stack;
 
@@ -12,65 +13,65 @@ public class DynamicString implements Comparable<DynamicString> {
 	private char[] chars;
 
 	private int length;
-	
+
 	public DynamicString() {
-		chars = new char[10];  
+		chars = new char[10];
 	}
-	
-	public DynamicString( DynamicString str ) {
+
+	public DynamicString(DynamicString str) {
 		chars = Arrays.copyOf(str.chars, str.length);
 		length = str.length;
 	}
-	
+
 	public DynamicString(String str) {
 		chars = str.toCharArray();
 		length = chars.length;
 	}
-	
+
 	public void add(char chr) {
-		add(length,chr);
+		add(length, chr);
 	}
-	
+
 	public void add(int index, char chr) {
-		checkIndex(index,length);
-		if(length==chars.length) {
-			chars = Arrays.copyOf(chars,chars.length*2);
+		checkIndex(index, length);
+		if (length == chars.length) {
+			chars = Arrays.copyOf(chars, chars.length * 2);
 		}
-    	for(int i=length; i>index;i--) {
-    		chars[i] = chars[i-1];
-    	}
-    	chars[index] = chr;
-    	length++;
+		for (int i = length; i > index; i--) {
+			chars[i] = chars[i - 1];
+		}
+		chars[index] = chr;
+		length++;
 
 
 //		value = Arrays.copyOf(value, newCapacity);
 	}
-	
+
 	public void remove(int index) {
-		checkIndex(index,length-1);
-        for(int i=index+1; i<length; i++) {
-			chars[i-1] = chars[i];
+		checkIndex(index, length - 1);
+		for (int i = index + 1; i < length; i++) {
+			chars[i - 1] = chars[i];
 		}
-        length--;
+		length--;
 	}
-	
+
 	public String toString() {
 		return new String(chars, 0, length);
-	}	
-	
+	}
+
 	// tas upp på föreläsning 14
-    public int hashCode() {
-        int hash = 0;
-        for (int i = 0; i < length; i++) {
-            hash = 31 * hash + chars[i];
-        }
-        return hash;
-    }
-    
-    // kontroll av index
+	public int hashCode() {
+		int hash = 0;
+		for (int i = 0; i < length; i++) {
+			hash = 31 * hash + chars[i];
+		}
+		return hash;
+	}
+
+	// kontroll av index
 	private void checkIndex(int index, int max) {
-		if(index<0 || index>max) {
-			throw new IndexOutOfBoundsException("index: "+index+", range: 0-"+max);
+		if (index < 0 || index > max) {
+			throw new IndexOutOfBoundsException("index: " + index + ", range: 0-" + max);
 		}
 	}
 
@@ -88,7 +89,7 @@ public class DynamicString implements Comparable<DynamicString> {
 
 	public void removeAll() {
 		chars = new char[10];
-		length=0;
+		length = 0;
 	}
 
 	public int indexOf(char chr) {
@@ -103,6 +104,7 @@ public class DynamicString implements Comparable<DynamicString> {
 	public DynamicString subString(int start) {
 		return subString(start, length);
 	}
+
 	public DynamicString subString(int start, int end) {
 		if (start < 0 || end > length || start > end) {
 			throw new IndexOutOfBoundsException();
@@ -119,6 +121,7 @@ public class DynamicString implements Comparable<DynamicString> {
 
 	/**
 	 * Add string to the end of the current string
+	 *
 	 * @param str the new string
 	 */
 	public void concat(DynamicString str) {
@@ -129,7 +132,6 @@ public class DynamicString implements Comparable<DynamicString> {
 			add(tmp.charAt(i));
 		}
 	}
-
 
 
 	@Override
@@ -170,13 +172,12 @@ public class DynamicString implements Comparable<DynamicString> {
 	@Override
 	public boolean equals(Object obj) {
 		//return super.equals(obj);
-		if( obj instanceof DynamicString) {
+		if (obj instanceof DynamicString) {
 			if (this.compareTo((DynamicString) obj) == 0) {
 				return true;
 			}
 			return false;
-		}
-		else
+		} else
 			return false;
 	}
 
@@ -221,7 +222,7 @@ public class DynamicString implements Comparable<DynamicString> {
 		System.out.println("size " + ds2.length());
 		ds2.concat(ds2);
 		System.out.println(ds2);
-		System.out.println("size "+ds2.length());
+		System.out.println("size " + ds2.length());
 
 //		DynamicString test = new DynamicString("Hello");
 //		DynamicString test2 = test.subString(0,4);
@@ -236,7 +237,6 @@ public class DynamicString implements Comparable<DynamicString> {
 		System.out.println(dss1.equals(dss2));
 		System.out.println(dss1.equals(str));
 		System.out.println(dss1.equals(dss3));
-
 
 
 	}

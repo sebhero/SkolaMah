@@ -168,7 +168,7 @@ public class LinearSearchTest {
 	public void test_9_binarySearch_1() throws Exception {
 
 //Given
-		int count=10_000;
+		int count=100_000;
 		Laboration2 lab2 = new Laboration2();
 		int[] arr = lab2.randomIntArray(count);
 		BinarySearch bs = new BinarySearch();
