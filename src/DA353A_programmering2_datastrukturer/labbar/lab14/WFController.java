@@ -120,9 +120,12 @@ public class WFController {
 		Iterator<Road> values = roads.values().iterator();
 		Road road;
 		for (Place place : places) {
+			//for all the places add the place name to the graph
+			//creates the places in the graph
 			graph.addVertex(place.getName());
 		}
 		while (values.hasNext()) {
+			//add the weight between the places
 			road = values.next();
 			graph.addEdge(road.getFrom(), road.getTo(), road.getCost());
 		}
@@ -135,6 +138,8 @@ public class WFController {
 		ArrayList<Road> roadList = new ArrayList<>();
 
 		if (graph.containsVertex(from)) {
+			//does a depthFirst Search for the connection.
+			//going down the Graph to find the path
 			path=GraphSearch.depthFirstSearch(graph, from, to);
 			for (Edge<String> edge : path) {
 				roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
@@ -152,6 +157,11 @@ public class WFController {
 		ArrayList<Road> roadList = new ArrayList<>();
 
 		if (graph.containsVertex(from)) {
+			//Using dijkstraSearch to find the path.
+			//which iin our case has a priorityQueue
+			//that weight the connection *edges
+			//which i it will take the lowest!? (shortest) edge
+			// for its next visited
 			path = GraphSearch.dijkstraSearch(graph, from, to);
 			for (Edge<String> edge : path) {
 				roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));

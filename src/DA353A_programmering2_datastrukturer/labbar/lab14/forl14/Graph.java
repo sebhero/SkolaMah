@@ -20,6 +20,7 @@ public class Graph<T> {
      * @param vertex
      */
     public void addVertex(T vertex) {
+	    //create the places for the diffrent stader
         graph.put(vertex, new ArrayList<Edge<T>>());
     }
 
@@ -45,15 +46,23 @@ public class Graph<T> {
         ArrayList<Edge<T>> adjacentList;
         Edge<T> edge;
         int index;
+	    //check that the cities exists first
         boolean res = graph.containsKey(from) && graph.containsKey(to);
         if (res) {
+	        //get the from pos
             adjacentList = graph.get(from);
+	        //creats a connection *edge
             edge = new Edge<T>(from, to, weight);
+	        //get the index of connection between the cities
             index = adjacentList.indexOf(edge);
+	        //if the connection exists update it (below true)
             if (index >= 0) {
-                adjacentList.set(index, edge);
+	            //In our case Never called
+	            adjacentList.set(index, edge);
             } else {
-                adjacentList.add(edge);
+	            //city connections doesnt exist. add it!
+	            //only called in our case
+	            adjacentList.add(edge);
             }
         }
         return res;
