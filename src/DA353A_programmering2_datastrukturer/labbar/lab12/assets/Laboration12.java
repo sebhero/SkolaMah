@@ -287,7 +287,7 @@ public class Laboration12 {
 
 	public static void main(String[] args) {
 		Laboration12 lab12 = new Laboration12();
-		lab12.exercise22();
+		lab12.exercise12b();
 	}
 
 	private void exercise22() {

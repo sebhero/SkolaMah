@@ -29,7 +29,7 @@ public class Exercise1 {
     }
     
     public static void main( String[] args ) {
-        ArrayList<Person> persons = Exercise1.readPersons( "files/personer.txt" );
+        ArrayList<Person> persons = Exercise1.readPersons("files/personer.txt");
         Person pers1 = new Person( "761201-7654", "Henry", "Smith" );
         Person pers2 = new Person( "011003-4444", "Alma", "Björk" );
         Person p;

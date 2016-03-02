@@ -44,7 +44,7 @@ public class Laboration11 {
 
 	public static void main(String[] args) {
 		Laboration11 lab11 = new Laboration11();
-		lab11.exercise2();
+		lab11.exercise1();
 	}
 }
 

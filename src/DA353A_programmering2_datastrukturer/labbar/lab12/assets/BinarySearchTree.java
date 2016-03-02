@@ -490,10 +490,10 @@ public class BinarySearchTree<K,V> implements SearchTree<K,V>, Iterable{
 //	    System.out.println("---------------------");
 //	    tree.printPostOrder();
 //
-//	    System.out.println("---------------------");
-//	    System.out.println("PRINT LevelOrder");
-//	    System.out.println("---------------------");
-//	    tree.printLevelOrder();
+	    System.out.println("---------------------");
+	    System.out.println("PRINT LevelOrder");
+	    System.out.println("---------------------");
+	    tree.printLevelOrder();
 
 //	    tree.root().showTree();
     }

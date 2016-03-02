@@ -178,6 +178,7 @@ public class AVLTree<K,V> implements SearchTree<K,V> {
     
     private AVLNode<K,V> balanceLeft(AVLNode<K,V> node) {
 	    if ((height(node.left) - height(node.right)) == 2) {
+
 		    if ((height(node.left.left) - height(node.left.right)) == -1) {
 			    node.left = rotateLeft(node.left);
 			    node = rotateRight(node);
@@ -266,20 +267,21 @@ public class AVLTree<K,V> implements SearchTree<K,V> {
         tree.put("hus","house");
         tree.put("vänster","left");
         tree.put("höger","right");
+
         tree.root().showAVL();
-
-	    tree.remove("hus");
-	    tree.root().showAVL();
-
-        String res = (String)tree.get("lärare");
-        System.out.println(res);
-        System.out.println(tree.get("LÄRARE"));
-        System.out.println("---------------------");
-        Iterator<String> elements = tree.iterator();
-        while(elements.hasNext()) {
-            System.out.println(elements.next());
-        }
-
-	    System.out.println("Height: "+tree.height());
+//
+//	    tree.remove("hus");
+//	    tree.root().showAVL();
+//
+//        String res = (String)tree.get("lärare");
+//        System.out.println(res);
+//        System.out.println(tree.get("LÄRARE"));
+//        System.out.println("---------------------");
+//        Iterator<String> elements = tree.iterator();
+//        while(elements.hasNext()) {
+//            System.out.println(elements.next());
+//        }
+//
+//	    System.out.println("Height: "+tree.height());
     }
 }
