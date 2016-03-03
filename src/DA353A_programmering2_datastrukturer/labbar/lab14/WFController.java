@@ -192,7 +192,10 @@ public class WFController {
 			}
 			for (Road road : roadList) {
 				System.out.println(road);
+
+				System.out.println("Ny lista");
 			}
+
 			map.showRoads(roadList);
 		}
 	}
@@ -212,17 +215,18 @@ public class WFController {
 	public static void main(String[] args) {
 		URL placesPath = WFController.class.getResource("/files/places.txt");
 		URL roadsPath = WFController.class.getResource("/files/roads.txt");
-		URL imgPath = WFController.class.getResource("/files/skane.jpg");
+		URL imgPath = WFController.class.getResource("/files/skane.JPG");
+		System.out.println(placesPath.getPath());
 		WFController controller = new WFController(placesPath.getPath(),
 				roadsPath.getPath(), imgPath.getPath());
 //		WFController controller = new WFController("files/places.txt",
 //				"files/roads.txt", "files/skane.jpg");
-		
-		controller.search1("Eslöv", "Kristianstad");
+
+//		controller.search1("Eslöv", "Kristianstad");
 //		controller.search1("Kristianstad", "Eslöv");
 //		controller.shortestPath("Kristianstad", "Eslöv");
 //		controller.shortestPath("Höganäs", "Åhus");
-//		controller.randomSearch("Åhus", "Ängelholm");
+		controller.randomSearch("Åhus", "Ängelholm");
 
 		// TODO: 2016-03-02 :17:16 UPG 6
 		//avkommenterar for upg6

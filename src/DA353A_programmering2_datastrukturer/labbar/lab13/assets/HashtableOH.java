@@ -134,7 +134,17 @@ public class HashtableOH<K, V> implements Map<K, V> {
 	}
 
 	public Iterator<V> values() {
-		return null;
+		LinkedList<V> values= new LinkedList<>();
+		for (LinkedList<Entry<K, V>> item : table) {
+			item.forEach(kvEntry -> values.push(kvEntry.value));
+//			Iterator<Entry<K, V>> itr = item.iterator();
+//
+//			while (itr.hasNext()) {
+//				keys.add(itr.next().key);
+//			}
+
+		}
+		return values.iterator();
 	}
 
 	public static void main(String[] args) {
@@ -160,5 +170,10 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		Iterator<String> keys = table.keys();
 		while (keys.hasNext())
 			System.out.println(keys.next());
+
+		System.out.println("-----VALUES-------------------------");
+		Iterator<String> values = table.keys();
+		while (values.hasNext())
+			System.out.println(values.next());
 	}
 }

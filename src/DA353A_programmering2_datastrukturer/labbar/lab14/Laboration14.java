@@ -94,6 +94,20 @@ public class Laboration14 {
 		text.append("Depth first search:\n" + from);
 		for (Edge<String> edge : res1)
 			text.append("--> " + edge.getTo());
+
+		text.append("\nDijkstra search:\n" + from);
+		int dSum = 0;
+		for (Edge<String> edge : res3) {
+			text.append("--> " + edge.getTo());
+			dSum+=edge.getWeight();
+		}
+		text.append("\nDijkstra search Sum:\n" + dSum);
+		int bSum = 0;
+		for (Edge<String> edge : res2) {
+			bSum+=edge.getWeight();
+		}
+		text.append("\nBreadth First search Sum:\n" + bSum);
+
 		JScrollPane scrollPane = new JScrollPane(text);
 		scrollPane.setPreferredSize(new Dimension(100, 150));
 		northPanel.add(new JLabel("Depth first", JLabel.CENTER));
