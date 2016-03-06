@@ -3,11 +3,7 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab14;
-
-import DA353A_programmering2_datastrukturer.labbar.lab14.forl14.Edge;
-import DA353A_programmering2_datastrukturer.labbar.lab14.forl14.Graph;
-import DA353A_programmering2_datastrukturer.labbar.lab14.forl14.GraphSearch;
+package DA353A_programmering2_datastrukturer.projekt.p2.p2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,37 +11,60 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.TreeMap;
+import java.util.*;
 
-
-
-public class WFController {
+/**
+ * Created by Sebastian Börebäck on 2016-03-06.
+ */
+public class P2Controller {
+	private final ArrayList<Place> places;
+	private final MainView mainView;
 	private Graph<String> graph = new Graph<String>();
 	private MapView map;
 	private TreeMap<String, Road> roads;
 
-	public WFController(String placeFile, String roadFile, String mapFile) {
-		ArrayList<Place> places = WFController.readPlaces(placeFile);
+	public P2Controller(String imgPath, Position mapLeftUp, Position mapRightDown,
+	                    String placesPath, String roadsPath) {
 
-		roads = WFController.readRoads(roadFile);
+
+		String placeFile = this.getClass().getResource("/"+placesPath).getPath();
+		String roadFile = this.getClass().getResource("/"+roadsPath).getPath();
+		String mapFile = this.getClass().getResource("/"+imgPath).getPath();
+
+
+		places = P2Controller.readPlaces(placeFile);
+
+
+		roads = P2Controller.readRoads(roadFile);
 		ArrayList<Road> roadList = new ArrayList<Road>();
 		Iterator<Road> values = roads.values().iterator();
 		while (values.hasNext())
 			roadList.add(values.next());
 
-		map = new MapView(mapFile, 12.527, 56.346, 14.596, 55.324);
-		showMap();
+		map = new MapView( mapFile, 12.527, 56.346, 14.596, 55.324);
+//		showMap();
 
-//		map.showRoads(roadList);
 
-	    makeGraph(places, roads); // Uppgift 2
+//
+
+
+		JFrame frame = new JFrame("Karta");
+//		frame.setSize(686, 592);
+		frame.setSize(686, 720);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainView = new MainView(map, this);
+		frame.getContentPane().add(mainView.mainPanel, BorderLayout.CENTER);
+
+		frame.setVisible(true);
+
+		map.showRoads(roadList);
+
+		makeGraph(places, roads); // Uppgift 2
 //		graph.printGraph();
 
 	}
+
 
 	public static ArrayList<Place> readPlaces(String filename) {
 		ArrayList<Place> places = new ArrayList<Place>();
@@ -85,8 +104,8 @@ public class WFController {
 					path.add(new Position(Double.parseDouble(parts[i]), Double
 							.parseDouble(parts[i + 1])));
 				}
-				int i=0;
-				res.put(parts[0] + "-" + parts[1], new Road(parts[0],parts[1], Integer.parseInt(parts[2]), path));
+				int i = 0;
+				res.put(parts[0] + "-" + parts[1], new Road(parts[0], parts[1], Integer.parseInt(parts[2]), path));
 				text = br.readLine();
 			}
 			br.close();
@@ -140,13 +159,13 @@ public class WFController {
 		if (graph.containsVertex(from)) {
 			//does a depthFirst Search for the connection.
 			//going down the Graph to find the path
-			path=GraphSearch.depthFirstSearch(graph, from, to);
+			path = GraphSearch.depthFirstSearch(graph, from, to);
 			for (Edge<String> edge : path) {
 				roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
 			}
 			map.showRoads(roadList);
+			mainView.updateMapRoadList(roadList);
 		}
-
 
 
 	}
@@ -167,6 +186,8 @@ public class WFController {
 				roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
 			}
 			map.showRoads(roadList);
+			mainView.updateMapRoadList(roadList);
+
 		}
 	}
 
@@ -201,37 +222,18 @@ public class WFController {
 	}
 
 
-    private void showRoads(Graph<String> graph) {
-    	ArrayList<Road> roadList = new ArrayList<Road>();
-    	Iterator<Edge<String>> iter = graph.iterator();
-    	Edge<String> edge;
-    	while(iter.hasNext()) {
-    		edge = iter.next();
-    		roadList.add(roads.get(edge.getFrom()+"-"+edge.getTo()));
-    	}
-    	map.showRoads(roadList);
-    }
-    
-	public static void main(String[] args) {
-		URL placesPath = WFController.class.getResource("/files/places.txt");
-		URL roadsPath = WFController.class.getResource("/files/roads.txt");
-		URL imgPath = WFController.class.getResource("/files/skane.jpg");
-		System.out.println(placesPath.getPath());
-		WFController controller = new WFController(placesPath.getPath(),
-				roadsPath.getPath(), imgPath.getPath());
-//		WFController controller = new WFController("files/places.txt",
-//				"files/roads.txt", "files/skane.jpg");
+	private void showRoads(Graph<String> graph) {
+		ArrayList<Road> roadList = new ArrayList<Road>();
+		Iterator<Edge<String>> iter = graph.iterator();
+		Edge<String> edge;
+		while (iter.hasNext()) {
+			edge = iter.next();
+			roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
+		}
+		map.showRoads(roadList);
+	}
 
-//		controller.search1("Eslöv", "Kristianstad");
-//		controller.search1("Kristianstad", "Eslöv");
-//		controller.shortestPath("Kristianstad", "Eslöv");
-//		controller.shortestPath("Höganäs", "Åhus");
-		controller.randomSearch("Åhus", "Ängelholm");
-
-		// TODO: 2016-03-02 :17:16 UPG 6
-		//avkommenterar for upg6
-//		String path = javax.swing.JOptionPane.showInputDialog( "Skriv in fran och till ( Malmö, Eslöv )?" );
-//		String[] paths = path.split(",");
-//		controller.shortestPath(paths[0], paths[1]);
+	public ArrayList<Place> getPlaces() {
+		return places;
 	}
 }

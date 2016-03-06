@@ -3,8 +3,12 @@
  * Copyright (c) 2016.
  */
 
-package DA353A_programmering2_datastrukturer.labbar.lab14;
+package DA353A_programmering2_datastrukturer.projekt.p2.p2;
 
+import DA353A_programmering2_datastrukturer.labbar.lab14.MapView;
+import DA353A_programmering2_datastrukturer.labbar.lab14.Place;
+import DA353A_programmering2_datastrukturer.labbar.lab14.Position;
+import DA353A_programmering2_datastrukturer.labbar.lab14.Road;
 import DA353A_programmering2_datastrukturer.labbar.lab14.forl14.Edge;
 import DA353A_programmering2_datastrukturer.labbar.lab14.forl14.Graph;
 import DA353A_programmering2_datastrukturer.labbar.lab14.forl14.GraphSearch;
@@ -20,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.TreeMap;
-
 
 
 public class WFController {
