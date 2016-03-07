@@ -18,7 +18,7 @@ import java.util.*;
  */
 public class P2Controller {
 	private final ArrayList<Place> places;
-	private final MainView mainView;
+	private MainView2 mainView;
 	private Graph<String> graph = new Graph<String>();
 	private MapView map;
 	private TreeMap<String, Road> roads;
@@ -27,9 +27,9 @@ public class P2Controller {
 	                    String placesPath, String roadsPath) {
 
 
-		String placeFile = this.getClass().getResource("/"+placesPath).getPath();
-		String roadFile = this.getClass().getResource("/"+roadsPath).getPath();
-		String mapFile = this.getClass().getResource("/"+imgPath).getPath();
+		String placeFile = this.getClass().getResource("/" + placesPath).getPath();
+		String roadFile = this.getClass().getResource("/" + roadsPath).getPath();
+		String mapFile = this.getClass().getResource("/" + imgPath).getPath();
 
 
 		places = P2Controller.readPlaces(placeFile);
@@ -41,28 +41,26 @@ public class P2Controller {
 		while (values.hasNext())
 			roadList.add(values.next());
 
-		map = new MapView( mapFile, 12.527, 56.346, 14.596, 55.324);
-//		showMap();
-
-
-//
-
-
-		JFrame frame = new JFrame("Karta");
-//		frame.setSize(686, 592);
-		frame.setSize(686, 720);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainView = new MainView(map, this);
-		frame.getContentPane().add(mainView.mainPanel, BorderLayout.CENTER);
-
-		frame.setVisible(true);
+		initGui(mapLeftUp, mapRightDown, mapFile, places);
 
 		map.showRoads(roadList);
 
 		makeGraph(places, roads); // Uppgift 2
-//		graph.printGraph();
 
+	}
+
+	private void initGui(Position mapLeftUp, Position mapRightDown, String mapFile, ArrayList<Place> places) {
+		map = new MapView(mapFile, mapLeftUp.getLongitude(), mapLeftUp.getLatitude(), mapRightDown.getLongitude(), mapRightDown.getLatitude());
+
+		mainView = new MainView2(map, this, places);
+
+		JFrame frame = new JFrame("Karta");
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		frame.getContentPane().add(mainView, BorderLayout.CENTER);
+		frame.setVisible(true);
+		frame.pack();
 	}
 
 
@@ -233,7 +231,4 @@ public class P2Controller {
 		map.showRoads(roadList);
 	}
 
-	public ArrayList<Place> getPlaces() {
-		return places;
-	}
 }

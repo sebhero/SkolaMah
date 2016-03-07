@@ -8,15 +8,18 @@ package DA353A_programmering2_datastrukturer.projekt.p2.p2.collections;
 
 import java.util.Comparator;
 
-
+/***
+ * ArrayHeap an heap using a array
+ * @param <E> the object typ of the ArrayHeap
+ */
 public class ArrayHeap<E> {
 	private E[] list;
 	private int size;
 	private Comparator<E> comp;
 
 	/**
-	 * Upg 7b
-	 * @param elements
+	 * Creates a Arrayheap with elements
+	 * @param elements the list of elements in the ArrayHeap
 	 */
 	public ArrayHeap(E[] elements) {
 		this.list = elements;
@@ -25,10 +28,6 @@ public class ArrayHeap<E> {
 		heapify();
 	}
 
-	/**
-	 * 7b
-	 * Min heapify
-	 */
 	private void heapify() {
 		for (int parent = (size -2)/2; parent >= 0; parent--) {
 			siftDown(parent);
@@ -50,6 +49,12 @@ public class ArrayHeap<E> {
 
 	}
 
+	/***
+	 * Creats a ArrayHeap with a comparator.
+	 * Which then sorts the ArrayHeap depending on the comparator
+	 * @param elements the array of elements that will be sorted
+	 * @param comparator the order the array will be sorted
+	 */
 	public ArrayHeap(E[] elements, Comparator comparator) {
 
 		this.list = elements;
@@ -59,12 +64,21 @@ public class ArrayHeap<E> {
 
 	}
 
+	/**
+	 * Creates a ArrayHeap with a initial size
+	 * @param initialCapacity the initial size
+	 */
 	public ArrayHeap(int initialCapacity) {
 		initialCapacity = Math.max(initialCapacity, 20);
 		list = (E[])(new Object[initialCapacity]);
 		comp = new Comp();  // Den naturliga sorteringsordningen
 	}
 
+	/***
+	 * Creates a ArrayHeap with a initial size and gets a Comparator
+	 * @param initialCapacity the inital size.
+	 * @param comparator the comparator, sorting order.
+	 */
 	public ArrayHeap(int initialCapacity, Comparator<E> comparator) {
 		initialCapacity = Math.max(initialCapacity, 20);
 		list = (E[])(new Object[initialCapacity]);
@@ -104,14 +118,22 @@ public class ArrayHeap<E> {
         }
         list[parent] = value;
     }
-	
+
+	/**
+	 * Add a new value to the ArrayHeap
+	 * @param value the new value
+	 */
 	public void insert(E value) {
 		if(size==list.length)
 			grow();
 		siftUp(value);
 		size++;
 	}
-	
+
+	/***
+	 * Remove the first element in the ArrayHeap
+	 * @return the removed element
+	 */
 	public E delete() {
 		E value = null;
 		if(size>0) {
@@ -121,7 +143,11 @@ public class ArrayHeap<E> {
 		}
 		return value;
 	}
-	
+
+	/***
+	 * Which elements will be removed next.
+	 * @return the next removable element
+	 */
 	public E peek() {
 		return (size>0) ? list[0] : null;
 	}
@@ -141,6 +167,10 @@ public class ArrayHeap<E> {
 		}
 	}
 
+	/***
+	 * Returns a String of the ArrayHeap
+	 * @return
+	 */
 	@Override
 	public String toString() {
 
@@ -159,12 +189,6 @@ public class ArrayHeap<E> {
 		txt += "]}";
 
 		return txt;
-
-//		return "ArrayHeap{" +
-//				"list=" + Arrays.toString(list) +
-//				", size=" + size +
-//				", comp=" + comp +
-//				'}';
 	}
 }
 

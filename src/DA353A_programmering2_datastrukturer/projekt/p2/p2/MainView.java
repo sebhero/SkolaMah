@@ -39,11 +39,11 @@ public class MainView extends JPanel{
 		ctrl  = p2Controller;
 		mapView = mapFile;
 
-		DefaultComboBoxModel<Object> cmbModel = new DefaultComboBoxModel<>(ctrl.getPlaces().toArray());
-		DefaultComboBoxModel<Object> cmbModel2 = new DefaultComboBoxModel<>(ctrl.getPlaces().toArray());
-
-		cmbFrom.setModel(cmbModel);
-		cmbTo.setModel(cmbModel2);
+//		DefaultComboBoxModel<Object> cmbModel = new DefaultComboBoxModel<>(ctrl.getPlaces().toArray());
+//		DefaultComboBoxModel<Object> cmbModel2 = new DefaultComboBoxModel<>(ctrl.getPlaces().toArray());
+//
+//		cmbFrom.setModel(cmbModel);
+//		cmbTo.setModel(cmbModel2);
 
 		rdBtnDijkstra.setSelected(true);
 		this.searchAlgorithm = new ActionEvent(rdBtnDijkstra, 1, "dijkstra");
@@ -51,7 +51,7 @@ public class MainView extends JPanel{
 
 
 
-		mapFile.setPreferredSize(new Dimension(686, 592));
+		//mapFile.setPreferredSize(new Dimension(686, 592));
 
 		btnSearch.addActionListener(new ActionListener() {
 			@Override
