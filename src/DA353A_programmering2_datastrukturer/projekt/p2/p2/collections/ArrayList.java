@@ -5,67 +5,108 @@
 
 package DA353A_programmering2_datastrukturer.projekt.p2.p2.collections;
 
-
-
-import DA353A_programmering2_datastrukturer.projekt.p1.collections.List;
+import collections.List;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ArrayList<E> implements List<E> {
+/**
+ * Resizable-array implementation of the List interface.
+ * Where user can add, remove element, get and set element in diffrent positions.
+ * @author Sebastian Börebäck
+ * @param <E> the type of ArrayList
+ */
+public class ArrayList<E> implements List<E>, Iterable<E> {
 	private E[] elements;
 	private int size;
-	
+
+	/**
+	 * Increase the size of the array that the Arraylist uses
+	 */
 	private void grow() {
-//		chars = Arrays.copyOf(chars,chars.length*2);
-		E[] temp = Arrays.copyOf(elements, size * 2);
-		elements = temp;
+		//old
+//		E[] temp = Arrays.copyOf(elements, size * 2);
+//		elements = temp;
+
+		//fix
+		elements = Arrays.copyOf(elements, size * 2);
 	}
-	
+
+	/**
+	 * Creates an empty list with default capacity
+	 */
 	public ArrayList() {
 		this(20);
 	}
-	
+
+	/**
+	 * Creates an empty list with initialized capacity
+	 * @param initialCapacity the initial capacity for the list
+	 */
 	public ArrayList(int initialCapacity) {
 		initialCapacity = Math.max(1, initialCapacity);
 		elements = (E[])new Object[initialCapacity];
+
 	}
 
+	/**
+	 * Add an element on index
+	 * @param index index at which the specified element is to be inserted
+	 * @param element element to be inserted
+	 */
 	public void add(int index, E element) {
 		if(index<0 || index>size)
 			throw new IndexOutOfBoundsException();
 		if(size==elements.length)
 			grow();
+
+		//old
+		/**
 		for(int i=size; i>index; i--) {
 			elements[i]=elements[i-1];
 		}
+		* */
+		System.arraycopy(elements, index, elements, index + 1, size - index);
+
 		elements[index] = element;
 		size++;
 	}
 
+	/**
+	 * Add a element at the end
+	 * @param element element to be appended to this list
+	 */
 	public void add(E element) {
-		add(size,element);
+		//old
+//		add(size,element);
+		addLast(element);
 	}
 
+	/**
+	 * Add a element at the first position
+	 * @param element element to be inserted at the beginning of this list
+	 */
 	public void addFirst(E element) {
-		// Laboration, uppgift 1b
 		add(0, element);
 	}
 
+	/**
+	 * Add a element at the end
+	 * @param element element to be appended at the end of this list
+	 */
 	public void addLast(E element) {
-		// Laboration, uppgift 1b
 		add(size, element);
 	}
 
+	/**
+	 * Remove element on index
+	 * @param index the index of the element to be removed
+	 * @return the removed element
+	 */
 	public E remove(int index) {
-		// Laboration, uppgift 1c
 		checkIndex(index);
 		E oldValue = elements[index];
-
-//		for (int i = index; i+1 < elements.length; i++) {
-//			elements[i] = elements[i + 1];
-//		}
 
 		//from arraylist
 		int numMoved=size - index - 1;
@@ -99,51 +140,85 @@ public class ArrayList<E> implements List<E> {
 		return oldValue;
 	}
 
+	/**
+	 * Remove the first element
+	 * @return the removed element
+	 */
 	public E removeFirst() {
-		// Laboration, uppgift 1d
 		return remove(0);
 	}
 
+	/**
+	 * Remove the last element
+	 * @return the removed element
+	 */
 	public E removeLast() {
-		// Laboration, uppgift 1d
 		return remove(size-1);
 	}
 
+	/**
+	 * Clear the list
+	 */
 	public void clear() {
-		// Laboration, uppgift 1g
 		//GC clean up
 		for (int i = 0; i < elements.length; i++) {
 			elements[i] = null;
 		}
 		size =0;
+		elements = (E[])new Object[20];
 	}
 
+	/***
+	 * Get a element at index
+	 * @param index index of the element to return
+	 * @return the element on index
+	 */
 	public E get(int index) {
-		// Laboration, uppgift 1e
 		checkIndex(index);
 		return elements[index];
 	}
 
+	/***
+	 * Set a element on index. index needs to be the size range
+	 * @param index index of the element to replace
+	 * @param element element to be stored at the specified position
+	 * @return the old element at position
+	 */
 	public E set(int index, E element) {
-		// Laboration, uppgift 1f
 		checkIndex(index);
 		E oldValue = elements[index];
 		elements[index] = element;
 		return oldValue;
 	}
 
+	/**
+	 * Check if the index is with in range
+	 * @param index index of the element
+	 */
 	private void checkIndex(int index) {
 		if(index<0 || index>size)
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("want to put on index: "+index);
 	}
 
+	/**
+	 * Get index for element
+	 * @param element element to search for
+	 * @return the index of the element
+	 */
 	public int indexOf(E element) {
-		// Laboration, uppgift 1i
 		return indexOf(0, element);
 	}
 
+	/**
+	 * get element on index with a starting index
+	 * @param startIndex the search starts at position startIndex in the list
+	 * @param element element to search for
+	 * @return the element on the index
+	 */
 	public int indexOf(int startIndex, E element) {
-		// Laboration, uppgift 1h
+		//added check index because start could be outofbounds
+		checkIndex(startIndex);
+
 		if (element == null) {
 			for (int i = startIndex; i < size; i++) {
 				if (elements[i] == null) {
@@ -161,11 +236,18 @@ public class ArrayList<E> implements List<E> {
 		return -1;
 	}
 
+	/**
+	 * Return the size of the Arraylist
+	 * @return size the size of the Arraylist
+	 */
 	public int size() {
-		// Laboration, uppgift 1j
 		return size;
 	}
-	
+
+	/**
+	 * Prints out the Arraylist as a string
+	 * @return String of the Arraylist
+	 */
 	public String toString() {
 		StringBuilder res = new StringBuilder("[ ");
 		for(int i=0; i<size; i++) {
@@ -177,57 +259,60 @@ public class ArrayList<E> implements List<E> {
 		return res.toString();
 	}
 
+	/**
+	 * A iterator to be able to iterate the list
+	 * @return the list iterator.
+	 */
 	public Iterator<E> iterator() {
 		return new Iter();
-//		return new Iterator<E>() {
-//			private int index=0;
-//			
-//			public boolean hasNext() {
-//				return index<size;
-//			}
-//			
-//			public E next() {
-//				if(index==size)
-//					throw new NoSuchElementException();
-//				return elements[index++];
-//			}
-//			
-//			public void remove() {
-//				throw new UnsupportedOperationException();
-//			}
-//		};
 	}
 
+	/**
+	 * Check if the list is empty
+	 * @return true if empty
+	 */
 	public boolean isEmpty() {
 		return (size() == 0);
 	}
 
+	/**
+	 * Converts the list to a array
+	 * @return a array from the Arraylist
+	 */
+	public E[] toArray() {
+		return Arrays.copyOf(elements, size);
+	}
+
+	/**
+	 * Helper class for iterating through the list.
+	 */
 	private class Iter implements Iterator<E> {
 		private int index=0;
-		
+
+		/**
+		 * Check there is a next.
+		 * @return true if there is a next element in list
+		 */
 		public boolean hasNext() {
 			return index<size;
 		}
-		
+
+		/**
+		 * gets the next element in list
+		 * @return the next element in list
+		 */
 		public E next() {
 			if(index==size)
 				throw new NoSuchElementException();
 			return elements[index++];
 		}
-		
+
+		/**
+		 * @deprecated Not implemented
+		 */
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
 	}
-	
-	public static void main(String[] args) {
-		ArrayList<Integer> list = new ArrayList<Integer>(10);
-		for(int i=10; i<100; i+=10) {
-			list.add(i);
-		}
-		System.out.println(list);
-		Iterator<Integer> numbers = list.iterator();
-		while(numbers.hasNext())
-			System.out.print(numbers.next()+ " ");
-	}
+
 }

@@ -44,11 +44,11 @@ public class Recursion1 {
 
     public static void main(String[] args) {
         Recursion1 rec1 = new Recursion1();
-//        rec1.print(5);
+//        rec1.printInOrder(5);
 //        rec1.neverStop(23);
 //        rec1.fill('-', 60);
-//        rec1.print("Hej student", 0);
-//        rec1.print("Hej student", 5);
+//        rec1.printInOrder("Hej student", 0);
+//        rec1.printInOrder("Hej student", 5);
 //        rec1.positive(new int[]{4, 7, -3, 5, -2, 8, 6, 5, -7}, 0);
     }
 }

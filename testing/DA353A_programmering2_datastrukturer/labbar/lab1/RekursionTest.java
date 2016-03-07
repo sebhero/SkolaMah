@@ -26,7 +26,7 @@ public class RekursionTest {
 
 	@Test
 	public void testPrint() throws Exception {
-		System.out.println("Test print");
+		System.out.println("Test printInOrder");
 		theRekursion.print(10, 15);
 
 		System.out.println("Test print2");

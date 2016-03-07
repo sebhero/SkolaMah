@@ -5,9 +5,10 @@
 
 package DA353A_programmering2_datastrukturer.projekt.p2.p2.collections;
 
+import collections.List;
+
 import java.util.Iterator;
-import java.util.List;
-//import collections.List;
+
 
 public interface SearchTree<K,V> {
     public void put(K key, V value);

@@ -33,7 +33,7 @@ public class ArrayHeapTest {
 //		for(Integer i : values)
 //			heap.insert(i);
 //		while(heap.size()>0) {
-//			System.out.print(heap.delete()+" ");
+//			System.out.printInOrder(heap.delete()+" ");
 //		}
 //		System.out.println();
 

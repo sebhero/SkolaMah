@@ -89,7 +89,7 @@ public class SurveyPanel extends JPanel {
         pnlHobby.add(cbSong);
 
 
-        //so i can get the text i want to print when its selected
+        //so i can get the text i want to printInOrder when its selected
         rb0_17.setActionCommand("0 - 17ar\n");
         rb18_64.setActionCommand("18 - 64ar\n");
         rb65.setActionCommand("65 - ar\n");

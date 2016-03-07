@@ -6,13 +6,16 @@
 package DA353A_programmering2_datastrukturer.projekt.p2.p2.collections;
 
 
+import collections.List;
+
+
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 /***
  * AVL Tree, a balanced tree
+ *
  * @param <K> the keys in the tree
  * @param <V> the values of the keys
  */
@@ -20,18 +23,38 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 	private Comparator<K> comparator;
 	private AVLNode<K, V> tree;
 
+	/***
+	 * Constructs a Empty tree.
+	 */
 	public AVLTree() {
 		comparator = new Comp();
 	}
 
+	/***
+	 * Constructs a Empty tree with a choosen Comparator
+	 *
+	 * @param comp the comparator for sorting the Tree.
+	 */
 	public AVLTree(Comparator<K> comp) {
 		comparator = comp;
 	}
 
+	/**
+	 * Returns the root of the tree
+	 *
+	 * @return the root element
+	 */
 	public AVLNode<K, V> root() {
 		return tree;
 	}
 
+
+	/**
+	 * Returns the element at the specified position in the tree.
+	 *
+	 * @param key the key of the element to return.
+	 * @return the element at the specified key in the tree
+	 */
 	public V get(K key) {
 		AVLNode<K, V> node = find(key);
 		if (node != null)
@@ -40,10 +63,22 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 	}
 
 
+	/**
+	 * Add a key and its connected value to the tree
+	 *
+	 * @param key   key with which the specified value is connected with.
+	 * @param value the value of the connected key
+	 */
 	public void put(K key, V value) {
 		tree = put(tree, key, value);
 	}
 
+	/**
+	 * Removes the mapped key from the tree if its present.
+	 *
+	 * @param key the key for the element to be removed.
+	 * @return the value that was associated with the key.
+	 */
 	public V remove(K key) {
 		V value = get(key);
 		if (value != null) {
@@ -52,14 +87,30 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 		return value;
 	}
 
+	/**
+	 * Does the key exist in the tree
+	 *
+	 * @param key the key which we are looking for
+	 * @return true if the key is in the tree
+	 */
 	public boolean contains(K key) {
 		return find(key) != null;
 	}
 
+	/***
+	 * Return the trees height
+	 *
+	 * @return the trees height
+	 */
 	public int height() {
 		return height(tree);
 	}
 
+	/***
+	 * Returns a iterator for the tree
+	 *
+	 * @return the Iterator for the tree.
+	 */
 	public Iterator<V> iterator() {
 		return new Iter();
 	}
@@ -137,32 +188,83 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 		if (node == null)
 			return -1;
 		return node.height();
-//        return 1 + Math.max( height( node.left ), height( node.right ));
 	}
 
-	public void countHeight(AVLNode<K, V> node) {
+	private void countHeight(AVLNode<K, V> node) {
 		node.height = Math.max(height(node.left), height(node.right)) + 1;
 	}
 
-	// Laboration 13
+	/***
+	 * Get the tree size
+	 * @return the size of the tree.
+	 */
 	public int size() {
-		return 0;
+		return this.tree.size();
 	}
 
+	/**
+	 * Get all the keys
+	 * @return a list of all the keys
+	 */
 	public List<K> keys() {
-		return null;
+		ArrayList<K> list = new ArrayList<K>();
+		keys(tree, list);
+		return (List<K>) list;
+
+
 	}
 
+	private void keys(AVLNode<K, V> node, ArrayList<K> list) {
+		if (node != null) {
+			keys(node.left, list);
+			list.add(node.key);
+			keys(node.right, list);
+		}
+	}
+
+
+	/***
+	 * Get a list of all the values
+	 * @return a list of all the values
+	 */
 	public List<V> values() {
-		return null;
+		collections.ArrayList<V> list = new collections.ArrayList<>();
+		Iterator<V> itr = this.iterator();
+		while (itr.hasNext()) {
+			list.add(itr.next());
+		}
+		return list;
 	}
 
+	/**
+	 * Returns the first value is the tree. returns null if its empty
+	 * @return the value of the first node.
+	 */
 	public V first() {
-		return null;
+		AVLNode<K, V> node = this.tree;
+		if (node == null) {
+			return null;
+		}
+		while (node.left != null) {
+			node = node.left;
+		}
+		return node.value;
+
 	}
 
+	/**
+	 * Returns the last value is the tree. returns null if its empty
+	 * @return the value of the last node.
+	 */
 	public V last() {
-		return null;
+		AVLNode<K, V> node = this.tree;
+		if (node == null) {
+			return null;
+		}
+		while (node.right != null) {
+			node = node.right;
+		}
+		return node.value;
 	}
 
 	private class Comp implements Comparator<K> {
@@ -245,10 +347,18 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 			}
 		}
 
+		/**
+		 * Check if there is a next element
+		 * @return true if there is a next element
+		 */
 		public boolean hasNext() {
 			return index < list.size() - 1;
 		}
 
+		/***
+		 * Get the next element
+		 * @return the next element
+		 */
 		public V next() {
 			if (!hasNext())
 				throw new NoSuchElementException();
@@ -256,6 +366,9 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 			return list.get(index);
 		}
 
+		/**
+		 * Not supported
+		 */
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
@@ -273,20 +386,25 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 		tree.put("vänster", "left");
 		tree.put("höger", "right");
 
-		tree.root().showAVL();
+//		tree.root().showAVL();
 
 		tree.remove("hus");
-		tree.root().showAVL();
+//		tree.root().showAVL();
 
 		String res = (String) tree.get("lärare");
 		System.out.println(res);
 		System.out.println(tree.get("LÄRARE"));
 		System.out.println("---------------------");
-		Iterator<String> elements = tree.iterator();
-		while (elements.hasNext()) {
-			System.out.println(elements.next());
-		}
+//		Iterator<String> elements = tree.iterator();
+//		while (elements.hasNext()) {
+////			System.out.println(elements.next());
+//		}
 
 		System.out.println("Height: " + tree.height());
+		System.out.println("Size: " + tree.size());
+		System.out.println("Last: " + tree.last());
+		System.out.println("First: " + tree.first());
+		System.out.println(tree.values());
+		System.out.println(tree.keys());
 	}
 }

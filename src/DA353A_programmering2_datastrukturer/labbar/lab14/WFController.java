@@ -222,16 +222,16 @@ public class WFController {
 //		WFController controller = new WFController("files/places.txt",
 //				"files/roads.txt", "files/skane.jpg");
 
-//		controller.search1("Eslöv", "Kristianstad");
-//		controller.search1("Kristianstad", "Eslöv");
-//		controller.shortestPath("Kristianstad", "Eslöv");
-//		controller.shortestPath("Höganäs", "Åhus");
+//		controller.depthFirstSearch("Eslöv", "Kristianstad");
+//		controller.depthFirstSearch("Kristianstad", "Eslöv");
+//		controller.dijkstraSearch("Kristianstad", "Eslöv");
+//		controller.dijkstraSearch("Höganäs", "Åhus");
 		controller.randomSearch("Åhus", "Ängelholm");
 
 		// TODO: 2016-03-02 :17:16 UPG 6
 		//avkommenterar for upg6
 //		String path = javax.swing.JOptionPane.showInputDialog( "Skriv in fran och till ( Malmö, Eslöv )?" );
 //		String[] paths = path.split(",");
-//		controller.shortestPath(paths[0], paths[1]);
+//		controller.dijkstraSearch(paths[0], paths[1]);
 	}
 }

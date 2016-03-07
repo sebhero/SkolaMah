@@ -71,7 +71,7 @@ public class PrintTree {
 			}
 
 			for (int l = indexToPrint; l < maxIndexToPrint; l++) {
-				///print value is list
+				///printInOrder value is list
 				System.out.print(theHeap[l].key);
 
 
@@ -112,7 +112,7 @@ public class PrintTree {
 
 				if (l < itemsInArray) {
 
-					///print value is list
+					///printInOrder value is list
 					System.out.print(String.format("%02d",theHeap[l].key));
 
 					for (int k = 0; k < spaces; k++) {

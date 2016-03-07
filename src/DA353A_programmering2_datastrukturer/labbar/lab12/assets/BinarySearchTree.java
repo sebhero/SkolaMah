@@ -250,7 +250,7 @@ public class BinarySearchTree<K,V> implements SearchTree<K,V>, Iterable{
 
 	/**
 	 * Upg 15
-	 * preorder print
+	 * preorder printInOrder
 	 */
 	private void printPreOrder() {
 		printPreOrder(tree);
@@ -345,7 +345,7 @@ public class BinarySearchTree<K,V> implements SearchTree<K,V>, Iterable{
 				height--;
 				System.out.println();
 			}
-			//do the action to print
+			//do the action to printInOrder
 //			a.action(node.value);
 			System.out.print(node.key +"\t\t");
 

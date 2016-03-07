@@ -8,18 +8,17 @@ package DA353A_programmering2_datastrukturer.projekt.p2.p2;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 
-/**
- * Created by seb on 2016-03-07.
+
+/****
+ * Main view for displaying the map etc.
+ * @author Sebastian Börebäck
  */
 public class MainView2 extends JPanel {
 
 	private final P2Controller ctrl;
-	private ActionEvent searchAlgorithm;
+	private SEARCHTYPE searchAlgorithm;
 	private JTabbedPane mainTabbedPanel;
 	private JPanel mapTab;
 	private JPanel textTab;
@@ -111,96 +110,72 @@ public class MainView2 extends JPanel {
 		//Add tabs and buttons panel
 		this.add(mainTabbedPanel, BorderLayout.CENTER);
 		this.add(buttonsPanel, BorderLayout.SOUTH);
-
-
-//		mainTabbedPanel
-
 	}
 
-
-	public MainView2(MapView mapFile, P2Controller p2Controller, ArrayList<Place> places) {
+	/**
+	 * Creates the MainView
+	 * @param mapView the map which i draw the graph on
+	 * @param p2Controller the controller
+	 * @param places the diffrent places that i can go to.
+	 */
+	public MainView2(MapView mapView, P2Controller p2Controller, Object[] places) {
 		ctrl  = p2Controller;
-		mapView = mapFile;
+		this.mapView = mapView;
 
+		//init gui
 		initGUI();
 
+		//fill the comboboxes with the places from the places.txt
 
-		cmbFrom.setModel(new DefaultComboBoxModel<>(places.toArray()));
-		cmbTo.setModel(new DefaultComboBoxModel<>(places.toArray()));
+		cmbFrom.setModel(new DefaultComboBoxModel<>(places));
+		cmbTo.setModel(new DefaultComboBoxModel<>(places));
 
+		//Set Dijkstra as initial searchType
 		rdBtnDijkstra.setSelected(true);
-		this.searchAlgorithm = new ActionEvent(rdBtnDijkstra, 1, "dijkstra");
+		this.searchAlgorithm = SEARCHTYPE.DIJKSTRA;
 
+		//init buttons
+		initButtons();
+	}
 
-
-
-		//mapFile.setPreferredSize(new Dimension(686, 592));
-
-		btnSearch.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(MessageFormat.format("From: {0} to {1}", cmbFrom.getSelectedItem(), cmbTo.getSelectedItem()));
-
-
-				System.out.println(searchAlgorithm.getID());
-				System.out.println(searchAlgorithm.getActionCommand());
-
-				switch (searchAlgorithm.getActionCommand()) {
-					case "dijkstra":
-						ctrl.shortestPath(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
-						break;
-					case "breadth":
-						ctrl.search1(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
-						break;
-					case "depth":
-						ctrl.search1(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
-						break;
-				}
-
-
-
+	private void initButtons() {
+		//add actionlistner to the search button
+		btnSearch.addActionListener(ae -> {
+			switch (searchAlgorithm) {
+				case DIJKSTRA:
+					ctrl.dijkstraSearch(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
+					break;
+				case BREADTH:
+					ctrl.breadthFirstSearch(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
+					break;
+				case DEPTH:
+					ctrl.depthFirstSearch(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
+					break;
+				default:
+					break;
 			}
 		});
 
 
-
-		rdBtnDijkstra.addActionListener(ae->{
-			this.searchAlgorithm = new ActionEvent(ae.getSource(), 1, "dijkstra");
-			System.out.println(searchAlgorithm.getID());
-			System.out.println(searchAlgorithm.getActionCommand());
-
-		});
-		rdBtnBreadth.addActionListener(ae -> {
-			this.searchAlgorithm = new ActionEvent(ae.getSource(), 2, "breadth");
-			System.out.println(searchAlgorithm.getID());
-			System.out.println(searchAlgorithm.getActionCommand());
-
-		});
-		rdBtnDepth.addActionListener(ae -> {
-			this.searchAlgorithm = new ActionEvent(ae.getSource(), 3, "depth");
-			System.out.println(searchAlgorithm.getID());
-			System.out.println(searchAlgorithm.getActionCommand());
-
-		});
+		/**
+		 * Init the radiobuttons. so when a radiobuton is selected there is a action
+		 */
+		rdBtnDijkstra.addActionListener(ae-> this.searchAlgorithm = SEARCHTYPE.DIJKSTRA);
+		rdBtnBreadth.addActionListener(ae -> this.searchAlgorithm = SEARCHTYPE.BREADTH);
+		rdBtnDepth.addActionListener(ae -> this.searchAlgorithm =SEARCHTYPE.DEPTH);
 	}
 
-
-
-	private void createUIComponents() {
-	}
-
+	/**
+	 * Update the text tab with the roadlist *path that you traveled to destination
+	 * @param roadList the list of paths you traveled.
+	 */
 	public void updateMapRoadList(ArrayList<Road> roadList) {
-//		taMapPath.setText(roadList.toString());
-
-		teMapPath.setText("Hello");
 		String txt = "";
 		for (Road road : roadList) {
 			txt+=road+"\n";
 
 		}
 		teMapPath.setText(txt);
-		System.out.println(txt);
-
 	}
 }
 

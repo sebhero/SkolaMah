@@ -13,8 +13,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+
 /**
- * Created by Sebastian Börebäck on 2016-03-06.
+ * A controller for the Graph and searching in the Graph
+ * @author Sebastian Börebäck
  */
 public class P2Controller {
 	private final ArrayList<Place> places;
@@ -23,6 +25,14 @@ public class P2Controller {
 	private MapView map;
 	private TreeMap<String, Road> roads;
 
+	/**
+	 * Constructs a controller for handling all communication between view and graph
+	 * @param imgPath path to the image
+	 * @param mapLeftUp upper left corner of the map
+	 * @param mapRightDown lower right corner of the map
+	 * @param placesPath the path to the places file
+	 * @param roadsPath the path to the roads file
+	 */
 	public P2Controller(String imgPath, Position mapLeftUp, Position mapRightDown,
 	                    String placesPath, String roadsPath) {
 
@@ -33,31 +43,32 @@ public class P2Controller {
 
 
 		places = P2Controller.readPlaces(placeFile);
-
-
 		roads = P2Controller.readRoads(roadFile);
+		//create the graph
+		makeGraph(places, roads);
+		//init the gui
+		initGui(mapLeftUp, mapRightDown, mapFile, places);
+
 		ArrayList<Road> roadList = new ArrayList<Road>();
 		Iterator<Road> values = roads.values().iterator();
 		while (values.hasNext())
 			roadList.add(values.next());
-
-		initGui(mapLeftUp, mapRightDown, mapFile, places);
-
 		map.showRoads(roadList);
 
-		makeGraph(places, roads); // Uppgift 2
+
 
 	}
 
 	private void initGui(Position mapLeftUp, Position mapRightDown, String mapFile, ArrayList<Place> places) {
 		map = new MapView(mapFile, mapLeftUp.getLongitude(), mapLeftUp.getLatitude(), mapRightDown.getLongitude(), mapRightDown.getLatitude());
 
-		mainView = new MainView2(map, this, places);
 
-		JFrame frame = new JFrame("Karta");
+
+		mainView = new MainView2(map, this,places.toArray());
+
+		JFrame frame = new JFrame("P2 Karta");
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.getContentPane().add(mainView, BorderLayout.CENTER);
 		frame.setVisible(true);
 		frame.pack();
@@ -113,16 +124,12 @@ public class P2Controller {
 		return res;
 	}
 
-	public void showMap() {
-		JFrame frame = new JFrame("Karta");
-		frame.setSize(686, 592);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(map, BorderLayout.CENTER);
-		frame.setVisible(true);
-	}
-
-	// Uppgift 2
+	/**
+	 * Creates the graph used for the searching.
+	 * connecting roads with the places
+	 * @param places the diffrent places
+	 * @param roads the diffrent roads between the places
+	 */
 	public void makeGraph(ArrayList<Place> places, TreeMap<String, Road> roads) {
 		// Iterera genom arraylisten places
 		// för varje Place-objekt så lägg till platsens namn som en nod
@@ -148,8 +155,12 @@ public class P2Controller {
 		}
 	}
 
-	// Uppgift 3
-	public void search1(String from, String to) {
+	/***
+	 * Do a depthFirst search
+	 * @param from from where
+	 * @param to to where
+	 */
+	public void depthFirstSearch(String from, String to) {
 
 		ArrayList<Edge<String>> path = new ArrayList<>();
 		ArrayList<Road> roadList = new ArrayList<>();
@@ -168,8 +179,36 @@ public class P2Controller {
 
 	}
 
-	// Uppgift 4
-	public void shortestPath(String from, String to) {
+	/***
+	 * Starts a BreadthFirst Search
+	 * @param from from which city
+	 * @param to which city
+	 */
+	public void breadthFirstSearch(String from, String to) {
+
+		ArrayList<Edge<String>> path = new ArrayList<>();
+		ArrayList<Road> roadList = new ArrayList<>();
+
+		if (graph.containsVertex(from)) {
+			//does a depthFirst Search for the connection.
+			//going down the Graph to find the path
+			path = GraphSearch.breadthFirstSearch(graph, from, to);
+			for (Edge<String> edge : path) {
+				roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
+			}
+			map.showRoads(roadList);
+			mainView.updateMapRoadList(roadList);
+		}
+
+
+	}
+
+	/***
+	 * Starts a Dijkstra Search
+	 * @param from from which city
+	 * @param to which city
+	 */
+	public void dijkstraSearch(String from, String to) {
 		ArrayList<Edge<String>> path = new ArrayList<>();
 		ArrayList<Road> roadList = new ArrayList<>();
 
@@ -189,46 +228,5 @@ public class P2Controller {
 		}
 	}
 
-	// Uppgift 5
-	public void randomSearch(String from, String to) {
-
-		Random rnd = new Random();
-
-		ArrayList<Road> roadList = new ArrayList<>();
-		ArrayList<Edge<String>> allEdges;
-
-		if (graph.containsVertex(from) && graph.containsVertex(to)) {
-			while (!from.equals(to)) {
-				//get all neigbours to the edge im at
-				//all places i can go to
-				allEdges = graph.getAdjacentList(from);
-				//pick a random edge
-				Edge<String> rndEdge = allEdges.get(rnd.nextInt(allEdges.size()));
-				//add the drive from where im at to new place.
-				roadList.add(roads.get(rndEdge.getFrom() + "-" + rndEdge.getTo()));
-				//now im at new place so i go from here!
-				from = rndEdge.getTo();
-			}
-			for (Road road : roadList) {
-				System.out.println(road);
-
-				System.out.println("Ny lista");
-			}
-
-			map.showRoads(roadList);
-		}
-	}
-
-
-	private void showRoads(Graph<String> graph) {
-		ArrayList<Road> roadList = new ArrayList<Road>();
-		Iterator<Edge<String>> iter = graph.iterator();
-		Edge<String> edge;
-		while (iter.hasNext()) {
-			edge = iter.next();
-			roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
-		}
-		map.showRoads(roadList);
-	}
 
 }

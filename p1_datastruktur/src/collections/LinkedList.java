@@ -213,6 +213,11 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 	public int indexOf(int startIndex, E element) {
 		checkIndex(startIndex);
 		ListNode<E> current = locate(startIndex);
+
+		if (current == null) {
+			return -1;
+		}
+
 		int index = startIndex;
 		do{
 			if (current.getData().equals(element)) {
@@ -220,7 +225,7 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 			}
 			index++;
 			current = current.getNext();
-		}while (current.getNext() != null);
+		}while (current != null);
 		return -1;
 	}
 
@@ -242,6 +247,10 @@ public class LinkedList<E> implements Iterable<E>, List<E> {
 			return list.toString();
 		else
 			return "[]";
+	}
+
+	public void push(E key) {
+		addFirst(key);
 	}
 
 	/**

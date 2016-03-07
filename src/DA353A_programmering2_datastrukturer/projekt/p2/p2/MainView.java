@@ -6,7 +6,6 @@
 package DA353A_programmering2_datastrukturer.projekt.p2.p2;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.MessageFormat;
@@ -64,13 +63,13 @@ public class MainView extends JPanel{
 
 				switch (searchAlgorithm.getActionCommand()) {
 					case "dijkstra":
-						ctrl.shortestPath(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
+						ctrl.dijkstraSearch(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
 						break;
 					case "breadth":
-						ctrl.search1(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
+						ctrl.breadthFirstSearch(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
 						break;
 					case "depth":
-						ctrl.search1(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
+						ctrl.depthFirstSearch(cmbFrom.getSelectedItem().toString(), cmbTo.getSelectedItem().toString());
 						break;
 				}
 

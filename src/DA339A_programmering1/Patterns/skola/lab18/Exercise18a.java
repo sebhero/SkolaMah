@@ -24,19 +24,19 @@ public class Exercise18a {
         URL filePath = Populations.class.getClassLoader().getResource("DA339A_programmering1/Patterns/skola/lab18/befolkning.txt");
         Population[] countries= Populations.readPopulations( filePath.getPath());
 
-        //toString print
+        //toString printInOrder
         printWithToString(countries);
 
-        //print  countries
+        //printInOrder  countries
         printWithCountries(countries);
 
-        //print land + inv over 100 mil
+        //printInOrder land + inv over 100 mil
         printBiggerThan100mil(countries);
 
-        //print starting with M
+        //printInOrder starting with M
         printWithM(countries);
 
-        //4 print inv mellan 8-10mil
+        //4 printInOrder inv mellan 8-10mil
         printBetween8_10(countries);
 
         //5 skriv ut alla l'nder med mindre an 1 mil
@@ -117,7 +117,7 @@ public class Exercise18a {
             }
         }
 
-        System.out.println("print new Array");
+        System.out.println("printInOrder new Array");
         System.out.println("count "+count);
 
         Population[] newArr = new Population[count];

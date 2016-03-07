@@ -6,14 +6,10 @@
 package DA353A_programmering2_datastrukturer.projekt.p2.p2.collections;
 
 import DA353A_programmering2_datastrukturer.labbar.lab13.Map;
+import collections.LinkedList;
 
 import java.util.Iterator;
-import java.util.LinkedList;
-//import DA353A_programmering2_datastrukturer.projekt.p1.collections.ArrayList;
-//import DA353A_programmering2_datastrukturer.projekt.p1.collections.LinkedList;
-//import f13.Map;
-//import collections.LinkedList;
-//import collections.ArrayList;
+
 
 /**
  * Hashtabellen använder öppen hashing
@@ -40,6 +36,12 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		return (hashCode < 0) ? -hashCode : hashCode;
 	}
 
+	/**
+	 * Add a key and its connected value to the HashTable
+	 * @param key key with which the specified value is connected with.
+	 * @param value the value of the connected key
+	 * @return the added value
+	 */
 	public V put(K key, V value) {
 		V res = null;
 		int hashIndex = hashIndex(key);
@@ -54,6 +56,9 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		return res;
 	}
 
+	/**
+	 * Prints out the list of elements in the hashtable
+	 */
 	public void list() {
 		Entry<K, V> entry;
 		for (int i = 0; i < table.length; i++) {
@@ -66,6 +71,12 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		}
 	}
 
+	/**
+	 * Returns the element at the specified position in the hashtable.
+	 *
+	 * @param key the key of the element to return.
+	 * @return the element at the specified key in the hashtable else null.
+	 */
 	public V get(K key) {
 
 
@@ -79,6 +90,12 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		return null;
 	}
 
+	/**
+	 * Removes the mapped key from the hashtable if its present.
+	 *
+	 * @param key the key for the element to be removed.
+	 * @return the value that was associated with the key.
+	 */
 	public V remove(K key) {
 
 		int counter = 0;
@@ -93,55 +110,61 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		return null;
 	}
 
+	/***
+	 * Get the tree size
+	 * @return the size of the tree.
+	 */
 	public int size() {
-//		int count = 0;
-//		for (LinkedList<Entry<K, V>> entries : table) {
-//			count += entries.size();
-//		}
-//		return count;
 		return size;
 	}
 
+	/**
+	 * Check is the tree is empty
+	 * @return true if its empty
+	 */
 	public boolean isEmpty() {
 		return size == 0;
 	}
 
+	/**
+	 * Does the key exist in the hashtable
+	 *
+	 * @param key the key which we are looking for
+	 * @return true if the key is in the hashtable
+	 */
 	public boolean containsKey(K key) {
 		return get(key) != null;
 	}
 
+	/**
+	 * Clears the hashtables of elements
+	 */
 	public void clear() {
 		for (LinkedList<Entry<K, V>> entries : table) {
 			entries.clear();
 		}
 	}
 
+	/**
+	 * Get all the keys
+	 * @return a list of all the keys
+	 */
 	public Iterator<K> keys() {
-
-
-
 		LinkedList<K> keys = new LinkedList<>();
 		for (LinkedList<Entry<K, V>> item : table) {
 			item.forEach(kvEntry -> keys.push(kvEntry.key));
-//			Iterator<Entry<K, V>> itr = item.iterator();
-//
-//			while (itr.hasNext()) {
-//				keys.add(itr.next().key);
-//			}
-
 		}
 		return keys.iterator();
 	}
 
+	/***
+	 * Get a list of all the values
+	 * @return a list of all the values
+	 */
 	public Iterator<V> values() {
 		LinkedList<V> values= new LinkedList<>();
 		for (LinkedList<Entry<K, V>> item : table) {
 			item.forEach(kvEntry -> values.push(kvEntry.value));
-//			Iterator<Entry<K, V>> itr = item.iterator();
-//
-//			while (itr.hasNext()) {
-//				keys.add(itr.next().key);
-//			}
 
 		}
 		return values.iterator();
@@ -163,7 +186,7 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		table.list();
 
 		System.out.println("get: " + table.get("dator"));
-		System.out.println("remove: " + table.remove("dator"));
+//		System.out.println("remove: " + table.remove("dator"));
 		System.out.println("size: " + table.size());
 
 		System.out.println("-----KEYS-------------------------");

@@ -20,7 +20,7 @@ public class Exercise17f {
         System.out.println("Print second");
         printEverySecond(array);
         System.out.println();
-        System.out.println("print revese");
+        System.out.println("printInOrder revese");
         Exercise17d.reverse(array);
 
     }

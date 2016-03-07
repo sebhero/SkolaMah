@@ -25,12 +25,12 @@ public class Upg5 {
 //
 //		while (!stack.isEmpty())
 //		{
-//			System.out.print(stack.pop());
+//			System.out.printInOrder(stack.pop());
 //		}
 //		System.out.println();
 //		System.out.println("que");
 //		while (!que.isEmpty()){
-//			System.out.print(que.dequeue());
+//			System.out.printInOrder(que.dequeue());
 //		}
 
 
