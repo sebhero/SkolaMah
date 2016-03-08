@@ -9,9 +9,9 @@ import java.util.Iterator;
 
 
 /**
- * Hashtabellen använder öppen hashing
+ * Hashtabellen that uses open hashing
  *
- * @author Rolf Axelsson
+ * @author Rolf Axelsson and Sebastian Börebäck
  */
 public class HashtableOH<K, V> implements Map<K, V> {
 	private LinkedList<Entry<K, V>>[] table;
@@ -19,6 +19,7 @@ public class HashtableOH<K, V> implements Map<K, V> {
 
 	/**
 	 * Creates a new instance of HashtableOH
+	 * @param size initialize of the Hashtable
 	 */
 	public HashtableOH(int size) {
 		table = (LinkedList<Entry<K, V>>[]) new LinkedList[size];
@@ -160,35 +161,5 @@ public class HashtableOH<K, V> implements Map<K, V> {
 
 		}
 		return values.iterator();
-	}
-
-	public static void main(String[] args) {
-		HashtableOH<String, String> table = new HashtableOH<>(4);
-		table.put("hej", "hello");
-		table.put("röd", "red");
-		table.put("vit", "white");
-		table.put("säng", "bed");
-		table.put("svart", "black");
-		table.put("gul", "yellow");
-		table.put("dator", "computer");
-		table.put("snö", "snow");
-		table.put("blå", "blue");
-		table.put("grön", "green");
-		table.put("hus", "house");
-		table.list();
-
-		System.out.println("get: " + table.get("dator"));
-//		System.out.println("remove: " + table.remove("dator"));
-		System.out.println("size: " + table.size());
-
-		System.out.println("-----KEYS-------------------------");
-		Iterator<String> keys = table.keys();
-		while (keys.hasNext())
-			System.out.println(keys.next());
-
-		System.out.println("-----VALUES-------------------------");
-		Iterator<String> values = table.keys();
-		while (values.hasNext())
-			System.out.println(values.next());
 	}
 }

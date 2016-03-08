@@ -24,8 +24,6 @@ class Entry<K,V> {
         this.value = value;
     }
     
-    // jämför två nycklar, returnerar true om lika
-
 	/**
 	 * Checks if two Entry are the same by comparing keys.
 	 * @param obj the other Entry

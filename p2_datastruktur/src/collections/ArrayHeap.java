@@ -82,7 +82,7 @@ public class ArrayHeap<E> {
 	public ArrayHeap(int initialCapacity, Comparator<E> comparator) {
 		initialCapacity = Math.max(initialCapacity, 20);
 		list = (E[])(new Object[initialCapacity]);
-		comp = comparator;  // ordning enligt argumentet comparator
+		comp = comparator;  // order by the comparator
 	}
 	
 	private void grow() {

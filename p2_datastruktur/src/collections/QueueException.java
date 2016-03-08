@@ -6,10 +6,9 @@
 package collections;
 
 /***
- *
+ * A Qeueue exception used for handling error in Queue like LinkedQueue
  */
 public class QueueException extends RuntimeException {
-//    public QueueException() {}
 
 	/***
 	 * Constructs a QueueException with a given error message

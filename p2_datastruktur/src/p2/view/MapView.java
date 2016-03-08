@@ -3,10 +3,18 @@
  * Copyright (c) 2016.
  */
 
+package p2.view;
+
+import p2.model.roffe.Position;
+import p2.model.roffe.Road;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * A JLabel for showing the map and roads between the cities
+ */
 public class MapView extends JLabel {
 	private double x1, y1, x2, y2;
 	private ArrayList<Road> roadsToShow = new ArrayList<Road>();

@@ -370,38 +370,4 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 			throw new UnsupportedOperationException();
 		}
 	}
-
-	public static void main(String[] args) {
-		AVLTree<String, String> tree = new AVLTree<String, String>();
-		tree.put("karta", "map");
-		tree.put("vacker", "beautiful");
-		tree.put("svart", "black");
-		tree.put("lärare", "teacher");
-		tree.put("boll", "ball");
-		tree.put("vit", "white");
-		tree.put("hus", "house");
-		tree.put("vänster", "left");
-		tree.put("höger", "right");
-
-//		tree.root().showAVL();
-
-		tree.remove("hus");
-//		tree.root().showAVL();
-
-		String res = (String) tree.get("lärare");
-		System.out.println(res);
-		System.out.println(tree.get("LÄRARE"));
-		System.out.println("---------------------");
-//		Iterator<String> elements = tree.iterator();
-//		while (elements.hasNext()) {
-////			System.out.println(elements.next());
-//		}
-
-		System.out.println("Height: " + tree.height());
-		System.out.println("Size: " + tree.size());
-		System.out.println("Last: " + tree.last());
-		System.out.println("First: " + tree.first());
-		System.out.println(tree.values());
-		System.out.println(tree.keys());
-	}
 }

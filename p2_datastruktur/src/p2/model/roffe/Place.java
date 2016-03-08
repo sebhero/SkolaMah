@@ -3,7 +3,7 @@
  * Copyright (c) 2016.
  */
 
-public class Place {
+package p2.model.roffe;public class Place {
     private String name;
     private Position position;
 

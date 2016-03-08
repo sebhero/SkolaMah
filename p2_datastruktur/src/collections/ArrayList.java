@@ -23,11 +23,6 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * Increase the size of the array that the Arraylist uses
 	 */
 	private void grow() {
-		//old
-//		E[] temp = Arrays.copyOf(elements, size * 2);
-//		elements = temp;
-
-		//fix
 		elements = Arrays.copyOf(elements, size * 2);
 	}
 
@@ -76,8 +71,6 @@ public class ArrayList<E> implements List<E>, Iterable<E> {
 	 * @param element element to be appended to this list
 	 */
 	public void add(E element) {
-		//old
-//		add(size,element);
 		addLast(element);
 	}
 

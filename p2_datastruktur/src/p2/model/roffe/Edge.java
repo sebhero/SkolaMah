@@ -3,7 +3,7 @@
  * Copyright (c) 2016.
  */
 
-/**
+package p2.model.roffe;/**
  * Klassen Edge representerar en båge mellan två noder i en riktad graf. En båge
  * har en vikt vilken anges vid konstruktion.
  * 
@@ -74,7 +74,7 @@ public class Edge<V> {
     public boolean equals(Object obj) {
         Edge<V> edge;
         boolean res = false;
-        if (obj instanceof Edge ) {
+        if (obj instanceof Edge) {
             edge = (Edge<V>) obj;
             res = this.from.equals(edge.from) && this.to.equals(edge.to);
         }

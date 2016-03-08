@@ -3,6 +3,11 @@
  * Copyright (c) 2016.
  */
 
+package p2.model.roffe;/*
+ * Author: Sebastian Börebäck
+ * Copyright (c) 2016.
+ */
+
 import java.util.*;
 
 public class GraphSearch {
@@ -41,7 +46,7 @@ public class GraphSearch {
      */
     public static <V> ArrayList<Edge<V>> depthFirstSearch(Graph<V> graph, V from, V to) {
         LinkedList<Edge<V>> stack = new LinkedList<Edge<V>>();
-        HashMap<V,Edge<V>> visited = new HashMap<V,Edge<V>>();
+        HashMap<V, Edge<V>> visited = new HashMap<V, Edge<V>>();
         boolean arrived = from.equals(to);
         Edge<V> edge;
 
@@ -89,7 +94,7 @@ public class GraphSearch {
      */
     public static <V> ArrayList<Edge<V>> breadthFirstSearch(Graph<V> graph, V from, V to) {
         LinkedList<Edge<V>> queue = new LinkedList<Edge<V>>();
-        HashMap<V,Edge<V>> visited = new HashMap<V,Edge<V>>();
+        HashMap<V, Edge<V>> visited = new HashMap<V, Edge<V>>();
         boolean arrived = from.equals(to);
         Edge<V> edge;
 
@@ -119,7 +124,7 @@ public class GraphSearch {
     public static <V> ArrayList<Edge<V>> dijkstraSearch(Graph<V> graph, V from, V to) {
         Candidate<V> candidate;
         PriorityQueue<Candidate<V>> queue = new PriorityQueue<Candidate<V>>();
-        HashMap<V,Edge<V>> visited = new HashMap<V,Edge<V>>();
+        HashMap<V, Edge<V>> visited = new HashMap<V, Edge<V>>();
         boolean arrived = from.equals(to);
         ArrayList<Edge<V>> adjacentList = graph.getAdjacentList(from);
 
@@ -155,9 +160,9 @@ public class GraphSearch {
 
     }
 
-    private static <V> ArrayList<Edge<V>> getPath(V from, V to, HashMap<V,Edge<V>> visited) {
+    private static <V> ArrayList<Edge<V>> getPath(V from, V to, HashMap<V, Edge<V>> visited) {
         ArrayList<Edge<V>> path = new ArrayList<Edge<V>>();
-        Edge<V>  edge = visited.get(to);
+        Edge<V> edge = visited.get(to);
         while( edge != null ) {
             path.add(0,edge);
             edge = visited.get(edge.getFrom());

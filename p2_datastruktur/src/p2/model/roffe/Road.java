@@ -3,6 +3,8 @@
  * Copyright (c) 2016.
  */
 
+package p2.model.roffe;
+
 import java.util.ArrayList;
 
 public class Road {

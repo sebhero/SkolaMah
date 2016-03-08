@@ -396,6 +396,7 @@ public class BinarySearchTree<K, V> implements SearchTree<K, V>, Iterable {
 	/**
 	 * Travesrse through the tree doing the action.
 	 * Action can be print, save to list etc.
+	 * @param action the action to do.
 	 */
 	public void traverse(Action<V> action) {
 		traverse(tree, action);
@@ -459,62 +460,5 @@ public class BinarySearchTree<K, V> implements SearchTree<K, V>, Iterable {
 			throw new UnsupportedOperationException();
 		}
 	}
-
-
-	public static void main(String[] args) {
-		BinarySearchTree<String, String> tree = new BinarySearchTree<>();
-		tree.put("karta", "map");
-		tree.put("vacker", "beautiful");
-		tree.put("svart", "black");
-		tree.put("lärare", "teacher");
-		tree.put("boll", "ball");
-		tree.put("vit", "white");
-		tree.put("hus", "house");
-		tree.put("vänster", "left");
-		tree.put("höger", "right");
-
-		String res = (String) tree.get("lärare");
-		System.out.println(res);
-		System.out.println(tree.get("LÄRARE"));
-		System.out.println("---------------------");
-		for (String aTree : (Iterable<String>) tree) {
-			System.out.println(aTree);
-		}
-
-		System.out.println("---------------------");
-		System.out.println("PRINT InOrder");
-		System.out.println("---------------------");
-		tree.printInOrder();
-
-		System.out.println("---------------------");
-		System.out.println("keys in order");
-		System.out.println("---------------------");
-		List<String> keys = tree.keys();
-		System.out.println(keys);
-
-		System.out.println("---------------------");
-		System.out.println("keys in order");
-		System.out.println("---------------------");
-		List<String> values = tree.values();
-		System.out.println(values);
-
-		System.out.println("---------------------");
-		System.out.println("PRINT PREOrderer");
-		System.out.println("---------------------");
-		tree.printPreOrder();
-
-		System.out.println("---------------------");
-		System.out.println("PRINT PostOrder");
-		System.out.println("---------------------");
-		tree.printPostOrder();
-//
-		System.out.println("---------------------");
-		System.out.println("PRINT LevelOrder");
-		System.out.println("---------------------");
-		tree.printLevelOrder();
-
-		tree.root().showTree();
-	}
-
 
 }

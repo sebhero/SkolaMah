@@ -3,7 +3,7 @@
  * Copyright (c) 2016.
  */
 
-public class Position {
+package p2.model.roffe;public class Position {
     private double longitude;
     private double latitude;
 
