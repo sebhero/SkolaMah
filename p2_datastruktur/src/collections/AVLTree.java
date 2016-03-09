@@ -193,14 +193,19 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 
 	/***
 	 * Get the tree size
+	 *
 	 * @return the size of the tree.
 	 */
 	public int size() {
+		if (this.tree == null) {
+			return 0;
+		}
 		return this.tree.size();
 	}
 
 	/**
 	 * Get all the keys
+	 *
 	 * @return a list of all the keys
 	 */
 	public List<K> keys() {
@@ -222,6 +227,7 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 
 	/***
 	 * Get a list of all the values
+	 *
 	 * @return a list of all the values
 	 */
 	public List<V> values() {
@@ -235,6 +241,7 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 
 	/**
 	 * Returns the first value is the tree. returns null if its empty
+	 *
 	 * @return the value of the first node.
 	 */
 	public V first() {
@@ -251,6 +258,7 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 
 	/**
 	 * Returns the last value is the tree. returns null if its empty
+	 *
 	 * @return the value of the last node.
 	 */
 	public V last() {
@@ -346,6 +354,7 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 
 		/**
 		 * Check if there is a next element
+		 *
 		 * @return true if there is a next element
 		 */
 		public boolean hasNext() {
@@ -354,6 +363,7 @@ public class AVLTree<K, V> implements SearchTree<K, V> {
 
 		/***
 		 * Get the next element
+		 *
 		 * @return the next element
 		 */
 		public V next() {

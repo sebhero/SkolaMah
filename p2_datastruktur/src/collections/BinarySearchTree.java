@@ -176,18 +176,6 @@ public class BinarySearchTree<K, V> implements SearchTree<K, V>, Iterable {
 	}
 
 
-//	/**
-//	 * Upg 8a. testa BTN-NODE size
-//	 *
-//	 * @return
-//	 */
-//	public int size1() {
-//		if (tree == null) {
-//			return 0;
-//		}
-//		//else
-//		return tree.size();
-//	}
 
 	/***
 	 * Get the tree size
@@ -369,16 +357,6 @@ public class BinarySearchTree<K, V> implements SearchTree<K, V>, Iterable {
 
 		}
 	}
-
-//	/**
-//	 * upg 8b
-//	 *
-//	 * @return
-//	 */
-//	public int size2() {
-//		return size2(this.tree);
-//
-//	}
 
 	/**
 	 * Recursive walkthrough the nodes to count them
