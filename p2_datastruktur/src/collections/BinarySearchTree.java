@@ -369,6 +369,7 @@ public class BinarySearchTree<K, V> implements SearchTree<K, V>, Iterable {
 			return 0;
 		}
 		return 1 + size2(node.left) + size2(node.right);
+		// TODO: 2016-03-10 :22:18 Ska tas bort
 	}
 
 	/**

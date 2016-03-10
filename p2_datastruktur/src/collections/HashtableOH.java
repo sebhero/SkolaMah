@@ -97,6 +97,8 @@ public class HashtableOH<K, V> implements Map<K, V> {
 		for (int i = 0; i < table[hashIndex].size(); i++) {
 			if (table[hashIndex].get(i).equals(entry)) {
 				Entry<K, V> retVal = table[hashIndex].remove(i);
+				//fixed code missing size--
+				size--;
 				return retVal.value;
 			}
 		}
@@ -135,7 +137,9 @@ public class HashtableOH<K, V> implements Map<K, V> {
 	public void clear() {
 		for (LinkedList<Entry<K, V>> entries : table) {
 			entries.clear();
+
 		}
+		size = 0;
 	}
 
 	/**
@@ -161,5 +165,52 @@ public class HashtableOH<K, V> implements Map<K, V> {
 
 		}
 		return values.iterator();
+	}
+
+	public static void main(String[] args) {
+		HashtableOH<String, String> table = new HashtableOH<String, String>(4);
+		table.put("hej", "hello");
+		table.put("röd", "red");
+		table.put("vit", "white");
+		table.put("säng", "bed");
+		table.put("svart", "black");
+		table.put("gul", "yellow");
+		table.put("dator", "computer");
+		table.put("snö", "snow");
+		table.put("blå", "blue");
+		table.put("grön", "green");
+		table.put("hus", "house");
+		table.list();
+
+		System.out.println("size: " + table.size());
+		System.out.println("get: " + table.get("dator"));
+		System.out.println("remove: " + table.remove("dator"));
+		System.out.println(table.remove("hus"));
+		System.out.println("size: " + table.size());
+
+		System.out.println("-----KEYS-------------------------");
+		Iterator<String> keys = table.keys();
+		while (keys.hasNext())
+			System.out.println(keys.next());
+
+		System.out.println("-----VALUES-------------------------");
+		Iterator<String> values = table.values();
+		while (values.hasNext())
+			System.out.println(values.next());
+
+		table.clear();
+		table.list();
+		System.out.println("After clear");
+		System.out.println("size: " + table.size());
+		System.out.println("-----KEYS-------------------------");
+		keys = table.keys();
+		while (keys.hasNext())
+			System.out.println(keys.next());
+
+		System.out.println("-----VALUES-------------------------");
+		values = table.values();
+		while (values.hasNext())
+			System.out.println(values.next());
+
 	}
 }

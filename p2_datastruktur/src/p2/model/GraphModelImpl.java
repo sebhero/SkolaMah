@@ -101,10 +101,14 @@ public class GraphModelImpl implements GraphModel {
 		 roadList.add(roads.get(edge.getFrom() + "-" + edge.getTo()));
 		 }
 		 */
-		roadList.addAll(path.stream().map(edge -> roads.get(edge.getFrom() + "-" + edge.getTo())).collect(Collectors.toList()));
+		roadList.addAll(path.stream().map(
+				edge -> roads.get(edge.getFrom() + "-" + edge.getTo()))
+				.collect(Collectors.toList()));
 
 		this.setFoundRoads(roadList);
 	}
+
+
 
 	/**
 	 * Get the found rouds from a search.
