@@ -1,0 +1,55 @@
+@startuml
+Admin -->
+create FakturaHanterare
+Admin --> FakturaHanterare:<<use>>
+Admin -> Kar: faktuera(:FakturaHanterare)
+
+
+
+loop För varje :Avdelning i Kar:avdelningar
+    Kar -> Avdelning: hämtaAvgKategori()
+
+    Kar -> Avdelning: hämtaNamn()
+    Kar -> Avdelning: hämtaMedlemmar()
+
+    loop För varje Medlem från Avdelning:hämtaMedlemmar()
+         Kar -> Medlem:hämtaNamn()
+         Kar -> Medlem:hämtaMedlemsNr()
+         Kar -> Medlem:hämtaAdress()
+
+         alt Medlem:ledare() == true
+            Kar -> Kar:beräknaAvgiftLedare
+         else Medlem:ledare()== false
+            Kar -> Kar:beräknaNormalAvgift
+         end
+    end
+end
+
+Kar -> FakturaHanterare:skrivFaktura()
+
+
+@enduml
+
+Medlem
+Avdelning
+Kar
+FakturaHanterare
+
+faktura har all medlemar avg i en lista
+ledare har rabbat.
+
+
+Systemet används bland annat för att skriva ut fakturor på
+medlemsavgift för alla medlemmar två gånger
+om året.
+
+varje kår har till gång till systemet och går in och
+anger att fakturor skall
+skrivas ut för kåren
+
+medlemmar som är ledare
+ får rabatt på medlemsavgiften
+
+ fakturorna skrivs ut så måste man veta vilken
+ avgiftskategori avdelningen som medlemmen tillhör
+ har och om medlemmen är ledare eller ej.

@@ -1,0 +1,39 @@
+@startuml
+kortinnehavaren -> Uttagsautomat:läsInKortNr()
+kortinnehavaren -> Uttagsautomat:läsInPINnr()
+kortinnehavaren ->Uttagsautomat:läsInBellop()
+
+Uttagsautomat ->Bank:verifieraKort()
+loop För varje BankKort i kort
+    Bank -> Bankkort:hämtaKortNr()
+    Bank -> Bankkort:hämtaPin()
+    alt ifall det är korrekt PIN
+        Bank->Bankkort:hämtaKonto
+        create Konto
+        Bankkort->Konto:<<get>>
+        Konto -->Bankkort
+        Bankkort --> Bank
+        Bank -> Konto:registeraUttag()
+        Konto --> Bank
+        alt Om Konto:registeraUttag är true
+            Bank -> Uttagsautomat:visaBekräftelseAvUttag()
+
+        else Om Konto:registeraUttag är false
+            Bank -> Uttagsautomat:visaFelmeddelande()
+        end
+    else ifall det felaktig PIN
+        Bankkort --> Bank
+        Bank -> Uttagsautomat:visaFelmeddelande()
+    end
+end
+@enduml
+
+Uttagsautomat
+Bank
+Konto
+Bankkort
+
+Uttagsautomaten läser in PIN-kod från
+kortinnehavaren
+
+läser av kortnumret från plastkortet
